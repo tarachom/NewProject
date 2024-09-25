@@ -11,6 +11,7 @@
 База даних [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
 
 <b>Для Linux</b> потрібно встановити dotnet-sdk-8.0
+
     sudo apt-get update
     sudo apt-get install -y dotnet-sdk-8.0
 
