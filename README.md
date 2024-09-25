@@ -12,8 +12,7 @@
 
 Середовище розробки [Visual Studio Code](https://code.visualstudio.com)<br/>
 База даних [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
-Документація [GtkSharp](https://accounting.org.ua/watch/section/news/code-00000015)<br/>
-Документація [SQL](https://accounting.org.ua/watch/section/note/code-00000057)<br/>
+Документація [GtkSharp](https://accounting.org.ua/watch/section/news/code-00000015) та [SQL](https://accounting.org.ua/watch/section/note/code-00000057)<br/>
 
 <b>Для Ubuntu</b><br/>
 Встановити dotnet-sdk-8.0
