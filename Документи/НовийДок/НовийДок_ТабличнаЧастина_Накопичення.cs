@@ -47,7 +47,6 @@ namespace NewProject
                 [
                     Користувач.Назва,
                     (float)Сума,
-
                 ];
             }
 
@@ -66,7 +65,6 @@ namespace NewProject
             {
                 await запис.Користувач.GetPresentation();
             }
-
         }
 
         #endregion
@@ -79,10 +77,8 @@ namespace NewProject
 
         void AddColumn()
         {
-
             //Користувач
             {
-
                 TreeViewColumn column = new TreeViewColumn("Користувач", new CellRendererText(), "text", (int)Columns.Користувач) { Resizable = true, MinWidth = 200 };
 
                 SetColIndex(column, Columns.Користувач);
@@ -91,7 +87,6 @@ namespace NewProject
 
             //Сума
             {
-
                 CellRendererText cellNumber = new CellRendererText() { Editable = true, Xalign = 1 };
                 cellNumber.Edited += EditCell;
                 TreeViewColumn column = new TreeViewColumn("Сума", cellNumber, "text", (int)Columns.Сума) { Resizable = true, Alignment = 1, MinWidth = 100 };
@@ -216,13 +211,11 @@ namespace NewProject
 
                 switch ((Columns)colNumber)
                 {
-
                     case Columns.Сума:
                         {
                             cellText.Text = запис.Сума.ToString();
                             break;
                         }
-
                     default: break;
                 }
             }

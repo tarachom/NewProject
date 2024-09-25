@@ -1,5 +1,4 @@
 
-
 /*     
         НовийДок_PointerControl.cs
         PointerControl

@@ -41,9 +41,9 @@ namespace NewProject
             await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
         }
 
-        protected override void FilterRecords(Box hBox)
+        protected override Widget? FilterRecords(Box hBox)
         {
-            hBox.PackStart(ТабличніСписки.Користувачі_Записи.CreateFilter(TreeViewGrid), false, false, 5);
+            return ТабличніСписки.Користувачі_Записи.CreateFilter(TreeViewGrid);
         }
 
         protected override async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null)

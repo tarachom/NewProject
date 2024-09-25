@@ -1,3 +1,10 @@
+
+/*
+
+Для звітів
+
+*/
+
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;

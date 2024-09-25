@@ -1,4 +1,11 @@
-﻿using Gtk;
+﻿
+/*
+
+Для повідомлень про помилки
+
+*/
+
+using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
 

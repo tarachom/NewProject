@@ -1,4 +1,11 @@
-﻿using AccountingSoftware;
+﻿
+/*
+
+Для довідників
+
+*/
+
+using AccountingSoftware;
 
 namespace NewProject
 {

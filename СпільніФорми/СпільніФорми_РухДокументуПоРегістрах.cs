@@ -1,4 +1,10 @@
 
+/*
+
+Вивід рухів документу по регістрах
+
+*/
+
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
