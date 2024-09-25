@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Configuration Select="True">
+    <Key>c117aaba-25a7-4775-a274-67f567baccef</Key>
+    <Name>* Новий</Name>
+    <Server>localhost</Server>
+    <Port>5432</Port>
+    <Login>postgres</Login>
+    <Password>1</Password>
+    <BaseName>test_new_project</BaseName>
+    <OtherParam>
+      <Param name="IsGenerateCode">True</Param>
+      <Param name="GenerateCodePath">/home/tarachom/Projects/NewProject/Configurator/</Param>
+      <Param name="CompileProgramPath">
+      </Param>
+    </OtherParam>
+  </Configuration>
+</root>

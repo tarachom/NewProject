@@ -1,0 +1,37 @@
+﻿using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+
+using NewProject_1_0;
+
+namespace NewProject
+{
+    class ФункціїДляПовідомлень : InterfaceGtk.ФункціїДляПовідомлень
+    {
+        public ФункціїДляПовідомлень() : base(Config.Kernel) { }
+
+        public static async void ДодатиПовідомлення(UuidAndText basis, string НазваОбєкту, Exception exception)
+        {
+            await new ФункціїДляПовідомлень().ДодатиПовідомленняПроПомилку("Запис", basis.Uuid, basis.Text, НазваОбєкту, exception.Message);
+            ПоказатиПовідомлення(basis.UnigueID());
+        }
+
+        public static async void ВідкритиПовідомлення()
+        {
+            СпільніФорми_ВивідПовідомленняПроПомилки page = new();
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, "Повідомлення", () => page);
+            await page.LoadRecords();
+        }
+
+        public static async void ПоказатиПовідомлення(UnigueID? ВідбірПоОбєкту = null, int? limit = null)
+        {
+            СпільніФорми_ВивідПовідомленняПроПомилки_ШвидкийВивід page = new();
+
+            Popover popover = new Popover(Program.GeneralForm?.ButtonMessage) { Position = PositionType.Bottom, BorderWidth = 5 };
+            popover.Add(page);
+            popover.Show();
+
+            await page.LoadRecords(ВідбірПоОбєкту, limit);
+        }
+    }
+}

@@ -1,0 +1,655 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "AtkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/AtkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/AtkSharp.dll": {}
+        }
+      },
+      "CairoSharp/3.24.24.117-develop": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CairoSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/CairoSharp.dll": {}
+        }
+      },
+      "GdkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop",
+          "GioSharp": "3.24.24.117-develop",
+          "PangoSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GdkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GdkSharp.dll": {}
+        }
+      },
+      "GioSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GioSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GioSharp.dll": {}
+        }
+      },
+      "GLibSharp/3.24.24.117-develop": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/GLibSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GLibSharp.dll": {}
+        }
+      },
+      "GtkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "AtkSharp": "3.24.24.117-develop",
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop",
+          "GdkSharp": "3.24.24.117-develop",
+          "GioSharp": "3.24.24.117-develop",
+          "PangoSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GtkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GtkSharp.dll": {}
+        },
+        "build": {
+          "build/GtkSharp.targets": {}
+        }
+      },
+      "GtkSourceSharp/3.24.24.95": {
+        "type": "package",
+        "dependencies": {
+          "GtkSharp": "3.24.24.95"
+        },
+        "compile": {
+          "lib/net6.0/GtkSourceSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/GtkSourceSharp.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+        }
+      },
+      "Npgsql/8.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "PangoSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/PangoSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/PangoSharp.dll": {}
+        }
+      },
+      "QuestPDF/2024.7.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/QuestPDF.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/QuestPDF.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/QuestPDF.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libQuestPdfSkia.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-musl-x64/native/libQuestPdfSkia.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/libQuestPdfSkia.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-arm64/native/libQuestPdfSkia.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/libQuestPdfSkia.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-x64/native/QuestPdfSkia.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/QuestPdfSkia.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "AccountingSoftware/3.1.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Npgsql": "8.0.4"
+        },
+        "compile": {
+          "bin/placeholder/AccountingSoftware.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AccountingSoftware.dll": {}
+        }
+      },
+      "Configurator3/3.1.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AccountingSoftware": "3.1.0",
+          "GtkSharp": "3.24.24.117-develop",
+          "GtkSourceSharp": "3.24.24.95",
+          "InterfaceGtk": "3.1.0"
+        },
+        "compile": {
+          "bin/placeholder/Configurator3.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Configurator3.dll": {}
+        }
+      },
+      "InterfaceGtk/3.1.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AccountingSoftware": "3.1.0",
+          "GtkSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "bin/placeholder/InterfaceGtk.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InterfaceGtk.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AtkSharp/3.24.24.117-develop": {
+      "sha512": "LqhUEqLkNC4Uybx/IKQenGDSvDFrjGE6w9uQ1zZwyHuGyDSZhiqeg6PyzU1FaQ3NF+uGwbFxDcDYJCVM2JoTpw==",
+      "type": "package",
+      "path": "atksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "atksharp.3.24.24.117-develop.nupkg.sha512",
+        "atksharp.nuspec",
+        "lib/net8.0/AtkSharp.dll",
+        "lib/netstandard2.0/AtkSharp.dll"
+      ]
+    },
+    "CairoSharp/3.24.24.117-develop": {
+      "sha512": "5zsEUuksviQPiZHdXyiuzVbn2wVnaBURTyENkVmZuHzr5T8mONAm+15LUu19Z3xbFCKx0CH4GJzuO7qW14nNQw==",
+      "type": "package",
+      "path": "cairosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cairosharp.3.24.24.117-develop.nupkg.sha512",
+        "cairosharp.nuspec",
+        "lib/net8.0/CairoSharp.dll",
+        "lib/netstandard2.0/CairoSharp.dll"
+      ]
+    },
+    "GdkSharp/3.24.24.117-develop": {
+      "sha512": "M7N7gMqjrW2NnAWcqR2E5/x5JUuz2jT3mFTTD7raHWF6llW7fiP3zxJfIiJHwHIOjSd8pfu7G8bVdCHwAd8t8g==",
+      "type": "package",
+      "path": "gdksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gdksharp.3.24.24.117-develop.nupkg.sha512",
+        "gdksharp.nuspec",
+        "lib/net8.0/GdkSharp.dll",
+        "lib/netstandard2.0/GdkSharp.dll"
+      ]
+    },
+    "GioSharp/3.24.24.117-develop": {
+      "sha512": "PxXTbBumyzJHt/h6qED0MYO3vEAY4vBHbgDrWFp1Kap5uUSpIMV8GPH2UaswX0wEtgdkMrVdhYGdeSllMwHWHw==",
+      "type": "package",
+      "path": "giosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "giosharp.3.24.24.117-develop.nupkg.sha512",
+        "giosharp.nuspec",
+        "lib/net8.0/GioSharp.dll",
+        "lib/netstandard2.0/GioSharp.dll"
+      ]
+    },
+    "GLibSharp/3.24.24.117-develop": {
+      "sha512": "NPHNJBR0FTZRMREP7ZtdFOlPFTRJwecYSCIWiJMvRybasH5xyavf7UmPkMzrGGJdt5ne4ZEZ3Yj+uOcqVKnkqg==",
+      "type": "package",
+      "path": "glibsharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "glibsharp.3.24.24.117-develop.nupkg.sha512",
+        "glibsharp.nuspec",
+        "lib/net8.0/GLibSharp.dll",
+        "lib/netstandard2.0/GLibSharp.dll"
+      ]
+    },
+    "GtkSharp/3.24.24.117-develop": {
+      "sha512": "qc4oBmHw4VoMk+tTurM6g2FRCl8yot/oOAy9ytmvzQ2+zI9T/SLF+Q534R1q8z3uz4q9sm46QOJOQOfAyOlKnQ==",
+      "type": "package",
+      "path": "gtksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/GtkSharp.targets",
+        "gtksharp.3.24.24.117-develop.nupkg.sha512",
+        "gtksharp.nuspec",
+        "lib/net8.0/GtkSharp.dll",
+        "lib/netstandard2.0/GtkSharp.dll"
+      ]
+    },
+    "GtkSourceSharp/3.24.24.95": {
+      "sha512": "IoFpgWFxoqfcthyLoQ4871J3B7OLCBRcjTH776s2Qj8VKbjTGCk1sUg253WgfOhPiovKsyWApZSSt6IV5yS2ww==",
+      "type": "package",
+      "path": "gtksourcesharp/3.24.24.95",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gtksourcesharp.3.24.24.95.nupkg.sha512",
+        "gtksourcesharp.nuspec",
+        "lib/net6.0/GtkSourceSharp.dll",
+        "lib/netstandard2.0/GtkSourceSharp.dll"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+      "sha512": "arDBqTgFCyS0EvRV7O3MZturChstm50OJ0y9bDJvAcmEPJm0FFpFyjU/JLYyStNGGey081DvnQYlncNX5SJJGA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "buildTransitive/net461/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net462/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Npgsql/8.0.4": {
+      "sha512": "vaYEUlF/pB9m8bs21wQv3Da0kMHT4A9USe47VfY/L2BO97xz5KfIxhEu22QS9d68ZrLxvtL3wQDfDLPr2OjbjA==",
+      "type": "package",
+      "path": "npgsql/8.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.8.0.4.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "PangoSharp/3.24.24.117-develop": {
+      "sha512": "WycHWMa+cd07LrbFMi4ulvFYbzz2WrjNw2F2MsJTZKW63J7Yxw9gHA5vMAkF6h/jT0beAi0+0FLqDyFm4xJszg==",
+      "type": "package",
+      "path": "pangosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/PangoSharp.dll",
+        "lib/netstandard2.0/PangoSharp.dll",
+        "pangosharp.3.24.24.117-develop.nupkg.sha512",
+        "pangosharp.nuspec"
+      ]
+    },
+    "QuestPDF/2024.7.3": {
+      "sha512": "e3M+8ZsTAxhYAEBlELq4q9MFUDK8j/eZeZ9m7C4HT62IGL/VwqoEWjJmbZSJlXj+VNxUwktBI+bJtwqxZeYUJA==",
+      "type": "package",
+      "path": "questpdf/2024.7.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Contributors.md",
+        "Description.md",
+        "Documentation.xml",
+        "ExternalDependencyLicenses/emsdk.txt",
+        "ExternalDependencyLicenses/expat.txt",
+        "ExternalDependencyLicenses/harfbuzz.txt",
+        "ExternalDependencyLicenses/icu.txt",
+        "ExternalDependencyLicenses/libjpeg-turbo.txt",
+        "ExternalDependencyLicenses/libpng.txt",
+        "ExternalDependencyLicenses/libwebp.txt",
+        "ExternalDependencyLicenses/ninja-build.txt",
+        "ExternalDependencyLicenses/readme.txt",
+        "ExternalDependencyLicenses/skia.txt",
+        "ExternalDependencyLicenses/wuffs.txt",
+        "ExternalDependencyLicenses/zlib.txt",
+        "LatoFont/Lato-Black.ttf",
+        "LatoFont/Lato-BlackItalic.ttf",
+        "LatoFont/Lato-Bold.ttf",
+        "LatoFont/Lato-BoldItalic.ttf",
+        "LatoFont/Lato-ExtraBold.ttf",
+        "LatoFont/Lato-ExtraBoldItalic.ttf",
+        "LatoFont/Lato-ExtraLight.ttf",
+        "LatoFont/Lato-ExtraLightItalic.ttf",
+        "LatoFont/Lato-Italic.ttf",
+        "LatoFont/Lato-Light.ttf",
+        "LatoFont/Lato-LightItalic.ttf",
+        "LatoFont/Lato-Medium.ttf",
+        "LatoFont/Lato-MediumItalic.ttf",
+        "LatoFont/Lato-Regular.ttf",
+        "LatoFont/Lato-SemiBold.ttf",
+        "LatoFont/Lato-SemiBoldItalic.ttf",
+        "LatoFont/Lato-Thin.ttf",
+        "LatoFont/Lato-ThinItalic.ttf",
+        "LatoFont/OFL.txt",
+        "Logo.png",
+        "PackageLicense.md",
+        "PackageReadme.md",
+        "ReleaseNotes.txt",
+        "build/QuestPDF.targets",
+        "build/net4/QuestPDF.targets",
+        "buildTransitive/QuestPDF.targets",
+        "buildTransitive/net4/QuestPDF.targets",
+        "lib/net6.0/QuestPDF.dll",
+        "lib/net6.0/QuestPDF.xml",
+        "lib/net8.0/QuestPDF.dll",
+        "lib/net8.0/QuestPDF.xml",
+        "lib/netstandard2.0/QuestPDF.dll",
+        "lib/netstandard2.0/QuestPDF.xml",
+        "questpdf.2024.7.3.nupkg.sha512",
+        "questpdf.nuspec",
+        "runtimes/linux-arm64/native/libQuestPdfSkia.so",
+        "runtimes/linux-musl-x64/native/libQuestPdfSkia.so",
+        "runtimes/linux-x64/native/libQuestPdfSkia.so",
+        "runtimes/osx-arm64/native/libQuestPdfSkia.dylib",
+        "runtimes/osx-x64/native/libQuestPdfSkia.dylib",
+        "runtimes/win-x64/native/QuestPdfSkia.dll",
+        "runtimes/win-x86/native/QuestPdfSkia.dll"
+      ]
+    },
+    "AccountingSoftware/3.1.0": {
+      "type": "project",
+      "path": "../AccountingSoftwareLib/AccountingSoftware/AccountingSoftware.csproj",
+      "msbuildProject": "../AccountingSoftwareLib/AccountingSoftware/AccountingSoftware.csproj"
+    },
+    "Configurator3/3.1.0": {
+      "type": "project",
+      "path": "../Configurator3/Configurator3.csproj",
+      "msbuildProject": "../Configurator3/Configurator3.csproj"
+    },
+    "InterfaceGtk/3.1.0": {
+      "type": "project",
+      "path": "../AccountingSoftwareLib/InterfaceGtk/InterfaceGtk.csproj",
+      "msbuildProject": "../AccountingSoftwareLib/InterfaceGtk/InterfaceGtk.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "AccountingSoftware >= 3.1.0",
+      "Configurator3 >= 3.1.0",
+      "GtkSharp >= 3.24.24.117-develop",
+      "InterfaceGtk >= 3.1.0",
+      "QuestPDF >= 2024.7.3"
+    ]
+  },
+  "packageFolders": {
+    "/home/tarachom/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "3.1.0",
+    "restore": {
+      "projectUniqueName": "/home/tarachom/Projects/NewProject/StorageAndTrade3.csproj",
+      "projectName": "StorageAndTrade3",
+      "projectPath": "/home/tarachom/Projects/NewProject/StorageAndTrade3.csproj",
+      "packagesPath": "/home/tarachom/.nuget/packages/",
+      "outputPath": "/home/tarachom/Projects/NewProject/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/tarachom/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "/home/tarachom/Projects/AccountingSoftwareLib/AccountingSoftware/AccountingSoftware.csproj": {
+              "projectPath": "/home/tarachom/Projects/AccountingSoftwareLib/AccountingSoftware/AccountingSoftware.csproj"
+            },
+            "/home/tarachom/Projects/AccountingSoftwareLib/InterfaceGtk/InterfaceGtk.csproj": {
+              "projectPath": "/home/tarachom/Projects/AccountingSoftwareLib/InterfaceGtk/InterfaceGtk.csproj"
+            },
+            "/home/tarachom/Projects/Configurator3/Configurator3.csproj": {
+              "projectPath": "/home/tarachom/Projects/Configurator3/Configurator3.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "GtkSharp": {
+            "target": "Package",
+            "version": "[3.24.24.117-develop, )"
+          },
+          "QuestPDF": {
+            "target": "Package",
+            "version": "[2024.7.3, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

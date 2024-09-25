@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "L1D2GQPDrRE=",
+  "success": true,
+  "projectFilePath": "/home/tarachom/Projects/NewProject/StorageAndTrade3.csproj",
+  "expectedPackageFiles": [
+    "/home/tarachom/.nuget/packages/atksharp/3.24.24.117-develop/atksharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/cairosharp/3.24.24.117-develop/cairosharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/gdksharp/3.24.24.117-develop/gdksharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/giosharp/3.24.24.117-develop/giosharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/glibsharp/3.24.24.117-develop/glibsharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/gtksharp/3.24.24.117-develop/gtksharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/gtksourcesharp/3.24.24.95/gtksourcesharp.3.24.24.95.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/npgsql/8.0.4/npgsql.8.0.4.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/pangosharp/3.24.24.117-develop/pangosharp.3.24.24.117-develop.nupkg.sha512",
+    "/home/tarachom/.nuget/packages/questpdf/2024.7.3/questpdf.2024.7.3.nupkg.sha512"
+  ],
+  "logs": []
+}
