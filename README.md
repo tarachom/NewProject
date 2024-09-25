@@ -13,7 +13,7 @@
 Середовище розробки [Visual Studio Code](https://code.visualstudio.com)<br/>
 База даних [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
 
-<b>Для Ubuntu</b> 
+<b>Для Ubuntu</b><br/>
 Встановити dotnet-sdk-8.0
 
     sudo apt-get update
@@ -30,6 +30,11 @@
 
     sudo -u postgres psql
     \password postgres
+
+Встановити Git
+
+    sudo apt-get update
+    sudo apt install git
 
 <b>Для Windows</b> 
 1. Встановити набір бібліотек GTK [gtk3-runtime](https://accounting.org.ua/download/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe)
