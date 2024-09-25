@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StorageAndTrade3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("3.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.1.0+bb0f035869e2959dc5a17050f2585589f3cb68ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("StorageAndTrade3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StorageAndTrade3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("3.1.0.0")]
