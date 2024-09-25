@@ -16,6 +16,8 @@
 # Mono auto generated files
 mono_crash.*
 
+build.sh
+
 *.sh
 
 #Configurator3
