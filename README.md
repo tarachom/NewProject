@@ -5,6 +5,9 @@
     git clone https://github.com/tarachom/Configurator3.git
     git clone https://github.com/tarachom/AccountingSoftwareLib.git
 
+    # Програма для обліку торгівлі, яку можна використати для навчання
+    git clone https://github.com/tarachom/StorageAndTrade3.git
+
 <hr />
 
 Середовище розробки [Visual Studio Code](https://code.visualstudio.com)<br/>
