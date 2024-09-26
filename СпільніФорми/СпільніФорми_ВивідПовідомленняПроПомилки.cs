@@ -23,7 +23,7 @@ namespace NewProject
 
         protected override Widget СтворитиВибір(UuidAndText uuidAndText)
         {
-            return new CompositePointerControl { Pointer = uuidAndText, Caption = "" };
+            return new CompositePointerControl { Pointer = uuidAndText, Caption = "", TypeSelectSensetive = false, ClearSensetive = false };
         }
     }
 

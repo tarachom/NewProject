@@ -23,6 +23,12 @@ namespace NewProject
             ПоказатиПовідомлення(basis.UnigueID());
         }
 
+        public static async void ДодатиІнформаційнеПовідомлення(UuidAndText basis, string НазваОбєкту, string Повідомлення)
+        {
+            await new ФункціїДляПовідомлень().ДодатиПовідомленняПроПомилку("Інформація", basis.Uuid, basis.Text, НазваОбєкту, Повідомлення, 'I');
+            ПоказатиПовідомлення();
+        }
+
         public static async void ВідкритиПовідомлення()
         {
             СпільніФорми_ВивідПовідомленняПроПомилки page = new();

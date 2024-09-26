@@ -479,6 +479,9 @@ namespace <xsl:value-of select="$NameSpace"/>
         <xsl:variable name="TabularParts" select="Document/TabularParts/TablePart"/>
         <xsl:variable name="TabularList" select="Document/TabularList"/>
 
+        <!-- Додатова інформація -->
+        <xsl:variable name="DocumentExportXML" select="Document/ExportXML"/>
+
 /*     
         <xsl:value-of select="$DocumentName"/>.cs
         Список
@@ -573,13 +576,16 @@ namespace <xsl:value-of select="$NameSpace"/>
         {
             СпільніФорми_РухДокументуПоРегістрах.СформуватиЗвіт(new <xsl:value-of select="$DocumentName"/>_Pointer(unigueID));
         }
-
+        
+        protected override bool IsExportXML() { return <xsl:choose><xsl:when test="$DocumentExportXML = '1'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>; } //Дозволити експорт документу
         protected override async ValueTask ExportXML(UnigueID unigueID, string pathToFolder)
         {
             <xsl:value-of select="$DocumentName"/>_Pointer Вказівник = new <xsl:value-of select="$DocumentName"/>_Pointer(unigueID);
             await Вказівник.GetPresentation();
+            string path = System.IO.Path.Combine(pathToFolder, $"{Вказівник.Назва}.xml");
 
-            await <xsl:value-of select="$DocumentName"/>_Export.ToXmlFile(Вказівник, System.IO.Path.Combine(pathToFolder, $"{Вказівник.Назва}.xml"));
+            await <xsl:value-of select="$DocumentName"/>_Export.ToXmlFile(Вказівник, path);
+            ФункціїДляПовідомлень.ДодатиІнформаційнеПовідомлення(Вказівник.GetBasis(), Вказівник.Назва, $"Вигружено у файл: {path}");
         }
 
         /*

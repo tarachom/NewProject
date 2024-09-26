@@ -17,7 +17,8 @@
 mono_crash.*
 
 build.sh
-
+ConfigurationParam.xml
+ConfigurationParam_.xml
 *.sh
 
 #Configurator3

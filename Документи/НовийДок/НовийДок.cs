@@ -36,7 +36,7 @@ namespace NewProject
         protected override async ValueTask LoadRecords_OnSearch(string searchText)
         {
             ТабличніСписки.НовийДок_Записи.ОчиститиВідбір(TreeViewGrid);
-            
+
             //Відбори
             ТабличніСписки.НовийДок_Записи.ДодатиВідбір(TreeViewGrid, НовийДок_Функції.Відбори(searchText));
 
@@ -95,12 +95,15 @@ namespace NewProject
             СпільніФорми_РухДокументуПоРегістрах.СформуватиЗвіт(new НовийДок_Pointer(unigueID));
         }
 
+        protected override bool IsExportXML() { return true; } //Дозволити експорт документу
+
         protected override async ValueTask ExportXML(UnigueID unigueID, string pathToFolder)
         {
             НовийДок_Pointer Вказівник = new НовийДок_Pointer(unigueID);
             await Вказівник.GetPresentation();
-
-            await НовийДок_Export.ToXmlFile(Вказівник, System.IO.Path.Combine(pathToFolder, $"{Вказівник.Назва}.xml"));
+            string path = System.IO.Path.Combine(pathToFolder, $"{Вказівник.Назва}.xml");
+            await НовийДок_Export.ToXmlFile(Вказівник, path);
+            ФункціїДляПовідомлень.ДодатиІнформаційнеПовідомлення(Вказівник.GetBasis(), Вказівник.Назва, $"Вигружено у файл: {path}");
         }
 
         protected override async ValueTask PrintingDoc(UnigueID unigueID)
@@ -111,4 +114,3 @@ namespace NewProject
         #endregion
     }
 }
-    
