@@ -5,6 +5,9 @@
     git clone https://github.com/tarachom/Configurator3.git
     git clone https://github.com/tarachom/AccountingSoftwareLib.git
 
+    cd NewProject
+    dotnet run
+
     # Програма для обліку торгівлі, яку можна використати для навчання
     git clone https://github.com/tarachom/StorageAndTrade3.git
 
@@ -27,7 +30,7 @@
     sudo apt-get update
     sudo apt-get install postgresql
 
-Встановити пароль для PostgreSQL
+    # Встановити пароль для PostgreSQL
 
     sudo -u postgres psql
     \password postgres
