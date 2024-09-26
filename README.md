@@ -1,5 +1,5 @@
 # Чистий проект для розробки нової програми 
-Розробка програми для обліку з використанням конфігуратора | .net 8, Linux, Windows
+<b>Розробка програми для обліку з використанням конфігуратора</b> | .net 8, Linux, Windows
 
     git clone https://github.com/tarachom/NewProject.git
     git clone https://github.com/tarachom/Configurator3.git
