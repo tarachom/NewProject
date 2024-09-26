@@ -1,6 +1,7 @@
 # Чистий проект для розробки нової програми 
 <b>Розробка програми для обліку з використанням конфігуратора</b> | .net 8, Linux, Windows
 
+    # Запуск програми з вихідних кодів
     git clone https://github.com/tarachom/NewProject.git
     git clone https://github.com/tarachom/Configurator3.git
     git clone https://github.com/tarachom/AccountingSoftwareLib.git
@@ -8,6 +9,8 @@
     cd NewProject
     dotnet run
 
+    
+    # Додатково
     # Програма для обліку торгівлі, яку можна використати для навчання
     git clone https://github.com/tarachom/StorageAndTrade3.git
 
