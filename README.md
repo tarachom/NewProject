@@ -11,6 +11,7 @@
     
 <hr />
 
+Детальніше про програму [accounting.org.ua](https://accounting.org.ua/configurator.html)<br/>
 Середовище розробки [Visual Studio Code](https://code.visualstudio.com)<br/>
 База даних [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
 Документація [GtkSharp](https://accounting.org.ua/watch/section/news/code-00000015) та [SQL](https://accounting.org.ua/watch/section/note/code-00000057)<br/>
