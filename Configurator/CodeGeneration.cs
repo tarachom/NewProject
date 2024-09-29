@@ -27,7 +27,7 @@ limitations under the License.
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 26.09.2024 14:27:54
+ * Дата конфігурації: 29.09.2024 04:34:26
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -336,18 +336,15 @@ namespace NewProject_1_0.Довідники
               
         }
 
-        public async ValueTask<bool> Read(UnigueID uid, bool readAllTablePart = false, bool readOnlyBaseFields = false)
+        public async ValueTask<bool> Read(UnigueID uid, bool readAllTablePart = false)
         {
-            if (await BaseRead(uid, readOnlyBaseFields))
+            if (await BaseRead(uid))
             {
-                if (!readOnlyBaseFields)
-                {
-                    Назва = base.FieldValue["col_f6"].ToString() ?? "";
-                    Код = base.FieldValue["col_f7"].ToString() ?? "";
-                    Коментар = base.FieldValue["col_g6"].ToString() ?? "";
-                    КодВСпеціальнійТаблиці = (base.FieldValue["col_a2"] != DBNull.Value) ? (Guid)base.FieldValue["col_a2"] : Guid.Empty;
-                    
-                }
+                Назва = base.FieldValue["col_f6"].ToString() ?? "";
+                Код = base.FieldValue["col_f7"].ToString() ?? "";
+                Коментар = base.FieldValue["col_g6"].ToString() ?? "";
+                КодВСпеціальнійТаблиці = (base.FieldValue["col_a2"] != DBNull.Value) ? (Guid)base.FieldValue["col_a2"] : Guid.Empty;
+                
                 BaseClear();
                 
                 if (readAllTablePart)
@@ -458,11 +455,11 @@ namespace NewProject_1_0.Довідники
             base.Init(uid, fields);
         }
         
-        public async ValueTask<Користувачі_Objest?> GetDirectoryObject(bool readOnlyBaseFields = false)
+        public async ValueTask<Користувачі_Objest?> GetDirectoryObject(bool readAllTablePart = false)
         {
             if (this.IsEmpty()) return null;
             Користувачі_Objest КористувачіObjestItem = new Користувачі_Objest();
-            return await КористувачіObjestItem.Read(base.UnigueID, readOnlyBaseFields) ? КористувачіObjestItem : null;
+            return await КористувачіObjestItem.Read(base.UnigueID, readAllTablePart) ? КористувачіObjestItem : null;
         }
 
         public Користувачі_Pointer Copy()
@@ -488,7 +485,7 @@ namespace NewProject_1_0.Довідники
 
         public async ValueTask SetDeletionLabel(bool label = true)
         {
-            Користувачі_Objest? obj = await GetDirectoryObject(true);
+            Користувачі_Objest? obj = await GetDirectoryObject();
             if (obj != null)
             {
                 
@@ -787,18 +784,15 @@ namespace NewProject_1_0.Документи
               
         }
 
-        public async ValueTask<bool> Read(UnigueID uid, bool readAllTablePart = false, bool readOnlyBaseFields = false)
+        public async ValueTask<bool> Read(UnigueID uid, bool readAllTablePart = false)
         {
-            if (await BaseRead(uid, readOnlyBaseFields))
+            if (await BaseRead(uid))
             {
-                if (!readOnlyBaseFields)
-                {
-                    Назва = base.FieldValue["docname"].ToString() ?? "";
-                    НомерДок = base.FieldValue["docnomer"].ToString() ?? "";
-                    ДатаДок = (base.FieldValue["docdate"] != DBNull.Value) ? DateTime.Parse(base.FieldValue["docdate"].ToString() ?? DateTime.MinValue.ToString()) : DateTime.MinValue;
-                    Коментар = base.FieldValue["col_a1"].ToString() ?? "";
-                    
-                }
+                Назва = base.FieldValue["docname"].ToString() ?? "";
+                НомерДок = base.FieldValue["docnomer"].ToString() ?? "";
+                ДатаДок = (base.FieldValue["docdate"] != DBNull.Value) ? DateTime.Parse(base.FieldValue["docdate"].ToString() ?? DateTime.MinValue.ToString()) : DateTime.MinValue;
+                Коментар = base.FieldValue["col_a1"].ToString() ?? "";
+                
                 BaseClear();
                 
                 if (readAllTablePart)
@@ -971,7 +965,7 @@ namespace NewProject_1_0.Документи
 
         public async ValueTask SetDeletionLabel(bool label = true)
         {
-            НовийДок_Objest? obj = await GetDocumentObject(true);
+            НовийДок_Objest? obj = await GetDocumentObject();
                 if (obj == null) return;
                 
                 if (label)
@@ -998,11 +992,11 @@ namespace NewProject_1_0.Документи
             return new UuidAndText(UnigueID.UGuid, НовийДок_Const.POINTER);
         }
 
-        public async ValueTask<НовийДок_Objest?> GetDocumentObject(bool readAllTablePart = false, bool readOnlyBaseFields = false)
+        public async ValueTask<НовийДок_Objest?> GetDocumentObject(bool readAllTablePart = false)
         {
             if (this.IsEmpty()) return null;
             НовийДок_Objest НовийДокObjestItem = new НовийДок_Objest();
-            if (!await НовийДокObjestItem.Read(base.UnigueID, readAllTablePart, readOnlyBaseFields)) return null;
+            if (!await НовийДокObjestItem.Read(base.UnigueID, readAllTablePart)) return null;
             return НовийДокObjestItem;
         }
 
