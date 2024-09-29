@@ -8,12 +8,7 @@
 
     cd NewProject
     dotnet run
-
     
-    # Додатково
-    # Програма для обліку торгівлі, яку можна використати для навчання
-    git clone https://github.com/tarachom/StorageAndTrade3.git
-
 <hr />
 
 Середовище розробки [Visual Studio Code](https://code.visualstudio.com)<br/>
