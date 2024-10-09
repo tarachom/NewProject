@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>29.09.2024 04:34:26</DateTimeSave>
+  <DateTimeSave>09.10.2024 16:42:00</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -258,6 +258,7 @@
                   <Name>Тип</Name>
                   <Caption>Тип</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>1</SortNum>
                   <Type>enum</Type>
                   <Pointer>Перелічення.ТипиКонтактноїІнформації</Pointer>
@@ -266,6 +267,7 @@
                   <Name>Значення</Name>
                   <Caption>Значення</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>2</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -274,6 +276,7 @@
                   <Name>Телефон</Name>
                   <Caption>Телефон</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>3</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -282,6 +285,7 @@
                   <Name>ЕлектроннаПошта</Name>
                   <Caption>Email</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>4</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -290,6 +294,7 @@
                   <Name>Країна</Name>
                   <Caption>Країна</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>5</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -298,6 +303,7 @@
                   <Name>Область</Name>
                   <Caption>Область</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>6</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -306,6 +312,7 @@
                   <Name>Місто</Name>
                   <Caption>Місто</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>7</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
@@ -314,11 +321,13 @@
                   <Name>Район</Name>
                   <Caption>Район</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>8</SortNum>
                   <Type>string</Type>
                   <Multiline>0</Multiline>
                 </Field>
               </ElementFields>
+              <IncludeIconColumn>0</IncludeIconColumn>
             </Form>
           </Forms>
         </TablePart>
@@ -375,6 +384,7 @@
               <Name>Код</Name>
               <Caption>Код</Caption>
               <Size>100</Size>
+              <Height>0</Height>
               <SortNum>1</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
@@ -383,6 +393,7 @@
               <Name>Назва</Name>
               <Caption>Назва</Caption>
               <Size>0</Size>
+              <Height>0</Height>
               <SortNum>2</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
@@ -391,6 +402,7 @@
               <Name>Коментар</Name>
               <Caption>Коментар</Caption>
               <Size>0</Size>
+              <Height>0</Height>
               <SortNum>3</SortNum>
               <Type>string</Type>
               <Multiline>1</Multiline>
@@ -400,6 +412,9 @@
             <TablePart>
               <Name>Контакти</Name>
               <Caption>Контакти</Caption>
+              <Size>0</Size>
+              <Height>0</Height>
+              <SortNum>100</SortNum>
             </TablePart>
           </ElementTableParts>
         </Form>
@@ -515,18 +530,24 @@
                   <Name>Користувач</Name>
                   <Caption>Користувач</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>100</SortNum>
                   <Type>pointer</Type>
                   <Pointer>Довідники.Користувачі</Pointer>
+                  <PresetntationFields Count="1">
+                    <Field>Назва</Field>
+                  </PresetntationFields>
                 </Field>
                 <Field>
                   <Name>Сума</Name>
                   <Caption>Сума</Caption>
                   <Size>0</Size>
+                  <Height>0</Height>
                   <SortNum>100</SortNum>
                   <Type>numeric</Type>
                 </Field>
               </ElementFields>
+              <IncludeIconColumn>0</IncludeIconColumn>
             </Form>
           </Forms>
         </TablePart>
@@ -611,6 +632,7 @@
               <Name>Назва</Name>
               <Caption>Назва</Caption>
               <Size>0</Size>
+              <Height>0</Height>
               <SortNum>100</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
@@ -619,6 +641,7 @@
               <Name>НомерДок</Name>
               <Caption>Номер</Caption>
               <Size>100</Size>
+              <Height>0</Height>
               <SortNum>100</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
@@ -627,6 +650,7 @@
               <Name>ДатаДок</Name>
               <Caption>Дата</Caption>
               <Size>100</Size>
+              <Height>0</Height>
               <SortNum>100</SortNum>
               <Type>datetime</Type>
             </Field>
@@ -634,6 +658,7 @@
               <Name>Коментар</Name>
               <Caption>Коментар</Caption>
               <Size>0</Size>
+              <Height>0</Height>
               <SortNum>100</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
@@ -643,6 +668,9 @@
             <TablePart>
               <Name>Накопичення</Name>
               <Caption>Накопичення</Caption>
+              <Size>0</Size>
+              <Height>0</Height>
+              <SortNum>100</SortNum>
             </TablePart>
           </ElementTableParts>
         </Form>

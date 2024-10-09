@@ -5,7 +5,6 @@
 */
 
 using AccountingSoftware;
-using NewProject;
 
 namespace NewProject_1_0.Документи
 {
@@ -19,9 +18,8 @@ namespace NewProject_1_0.Документи
 		/// <param name="СписокПомилок">Список помилок</param>
         public static async ValueTask ДокументНеПроводиться(DocumentObject ДокументОбєкт, string НазваДокументу, string СписокПомилок)
         {
-            await new ФункціїДляПовідомлень().ДодатиПовідомленняПроПомилку(
-                "Проведення документу", ДокументОбєкт.UnigueID.UGuid, $"Документи.{ДокументОбєкт.TypeDocument}", НазваДокументу,
-                СписокПомилок + "\n\nДокумент [ " + НазваДокументу + " ] не проводиться!");
+            await Config.Kernel.MessageErrorAdd("Проведення документу", ДокументОбєкт.UnigueID.UGuid, $"Документи.{ДокументОбєкт.TypeDocument}", НазваДокументу,
+                 СписокПомилок + "\n\nДокумент [ " + НазваДокументу + " ] не проводиться!");
         }
     }
 }

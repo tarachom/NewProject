@@ -27,7 +27,7 @@ limitations under the License.
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 29.09.2024 04:34:26
+ * Дата конфігурації: 09.10.2024 16:42:00
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -543,6 +543,8 @@ namespace NewProject_1_0.Довідники
             if (owner == null) throw new Exception("owner null");
             Owner = owner;
         }
+
+        public const string TABLE = "tab_a15";
         
         public const string Тип = "col_f8";
         public const string Телефон = "col_g5";
@@ -1026,6 +1028,8 @@ namespace NewProject_1_0.Документи
             if (owner == null) throw new Exception("owner null");
             Owner = owner;
         }
+
+        public const string TABLE = "tab_a03";
         
         public const string Користувач = "col_a3";
         public const string Сума = "col_a4";
@@ -1125,9 +1129,7 @@ namespace NewProject_1_0.Документи
 
         public List<Record> Copy()
         {
-            List<Record> copyRecords = new List<Record>();
-            copyRecords = Records;
-
+            List<Record> copyRecords = new(Records);
             foreach (Record copyRecordItem in copyRecords)
                 copyRecordItem.UID = Guid.Empty;
 
