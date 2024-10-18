@@ -1,6 +1,6 @@
 /*
 
-Старова сторінка
+Стартова сторінка
 
 */
 
@@ -12,7 +12,7 @@ namespace NewProject
 {
     class PageHome : Box
     {
-        public БлокДляСторінки_АктивніКористувачі АктивніКористувачі = new БлокДляСторінки_АктивніКористувачі(Config.Kernel) { WidthRequest = 500 };
+        public БлокДляСторінки_АктивніКористувачі АктивніКористувачі = new БлокДляСторінки_АктивніКористувачі(Config.Kernel) { WidthRequest = 500, HeightRequest = 150 };
 
         public PageHome() : base(Orientation.Vertical, 0)
         {
