@@ -1,33 +1,10 @@
 ﻿
 /*
-Copyright (C) 2019-2023 TARAKHOMYN YURIY IVANOVYCH
-All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-/*
-Автор:    Тарахомин Юрій Іванович
-Адреса:   Україна, м. Львів
-Сайт:     accounting.org.ua
-*/
-  
-/*
  *
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 09.10.2024 16:42:00
+ * Дата конфігурації: 09.11.2024 18:20:24
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -301,6 +278,7 @@ namespace NewProject_1_0.Довідники
     public static class Користувачі_Const
     {
         public const string TABLE = "tab_a14";
+        public const string TYPE = "Користувачі"; /* Назва вказівника */
         public const string POINTER = "Довідники.Користувачі"; /* Повна назва вказівника */
         public const string FULLNAME = "Користувачі"; /* Повна назва об'єкта */
         public const string DELETION_LABEL = "deletion_label"; /* Помітка на видалення true|false */
@@ -317,7 +295,7 @@ namespace NewProject_1_0.Довідники
         public event EventHandler<UnigueID>? UnigueIDChanged;
         public event EventHandler<string>? CaptionChanged;
 
-        public Користувачі_Objest() : base(Config.Kernel, "tab_a14",
+        public Користувачі_Objest() : base(Config.Kernel, "tab_a14", Користувачі_Const.TYPE,
              ["col_f6", "col_f7", "col_g6", "col_a2", ]) 
         {
             
@@ -748,6 +726,7 @@ namespace NewProject_1_0.Документи
     public static class НовийДок_Const
     {
         public const string TABLE = "tab_a01";
+        public const string TYPE = "НовийДок"; /* Назва вказівника */
         public const string POINTER = "Документи.НовийДок"; /* Повна назва вказівника */
         public const string FULLNAME = "НовийДок"; /* Повна назва об'єкта */
         public const string DELETION_LABEL = "deletion_label"; /* Помітка на видалення true|false */
@@ -767,7 +746,7 @@ namespace NewProject_1_0.Документи
         public event EventHandler<UnigueID>? UnigueIDChanged;
         public event EventHandler<string>? CaptionChanged;
 
-        public НовийДок_Objest() : base(Config.Kernel, "tab_a01", "НовийДок",
+        public НовийДок_Objest() : base(Config.Kernel, "tab_a01", НовийДок_Const.TYPE,
              ["docname", "docnomer", "docdate", "col_a1", ])
         {
             

@@ -14,9 +14,6 @@ namespace NewProject
         {
             PageHome page = new PageHome();
             NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, "Стартова", () => page);
-
-            //Активні користувачі
-            page.АктивніКористувачі.AutoRefreshRun();
         }
 
         public async void SetCurrentUser()

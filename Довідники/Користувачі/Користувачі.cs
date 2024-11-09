@@ -7,6 +7,7 @@
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
+using NewProject_1_0;
 using NewProject_1_0.Довідники;
 using ТабличніСписки = NewProject_1_0.Довідники.ТабличніСписки;
 
@@ -17,6 +18,11 @@ namespace NewProject
         public Користувачі() : base()
         {
             ТабличніСписки.Користувачі_Записи.AddColumns(TreeViewGrid);
+            Config.Kernel.DirectoryObjectChanged += async (object? sender, Dictionary<string, List<Guid>> directory) =>
+            {
+                if (directory.Any((x) => x.Key == Користувачі_Const.TYPE))
+                    await LoadRecords();
+            };
         }
 
         #region Override

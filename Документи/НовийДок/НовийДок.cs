@@ -9,6 +9,7 @@ using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
 
+using NewProject_1_0;
 using ТабличніСписки = NewProject_1_0.Документи.ТабличніСписки;
 using NewProject_1_0.Документи;
 
@@ -19,6 +20,11 @@ namespace NewProject
         public НовийДок() : base()
         {
             ТабличніСписки.НовийДок_Записи.AddColumns(TreeViewGrid);
+            Config.Kernel.DocumentObjectChanged += async (object? sender, Dictionary<string, List<Guid>> document) =>
+            {
+                if (document.Any((x) => x.Key == НовийДок_Const.TYPE))
+                    await LoadRecords();
+            };
         }
 
         #region Override
