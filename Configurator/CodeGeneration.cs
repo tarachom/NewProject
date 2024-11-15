@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 09.11.2024 18:20:24
+ * Дата конфігурації: 15.11.2024 11:44:15
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -401,7 +401,7 @@ namespace NewProject_1_0.Довідники
             return new Користувачі_Pointer(UnigueID.UGuid);
         }
 
-        public UuidAndText GetBasis()
+        public override UuidAndText GetBasis()
         {
             return new UuidAndText(UnigueID.UGuid, Користувачі_Const.POINTER);
         }
@@ -885,7 +885,7 @@ namespace NewProject_1_0.Документи
             return new НовийДок_Pointer(UnigueID.UGuid);
         }
 
-        public UuidAndText GetBasis()
+        public override UuidAndText GetBasis()
         {
             return new UuidAndText(UnigueID.UGuid, НовийДок_Const.POINTER);
         }
