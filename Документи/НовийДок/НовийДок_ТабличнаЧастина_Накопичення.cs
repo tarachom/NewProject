@@ -150,7 +150,6 @@ namespace NewProject
 
         #region Func
 
-
         protected override ФормаЖурнал? OpenSelect(TreeIter iter, int rowNumber, int colNumber)
         {
             Запис запис = Записи[rowNumber];
@@ -166,6 +165,17 @@ namespace NewProject
                                 запис.Користувач = new Користувачі_Pointer(selectPointer);
                                 await Запис.ПісляЗміни_Користувач(запис);
                                 Store.SetValues(iter, запис.ToArray());
+                            },
+                            CallBack_OnMultipleSelectPointer = async (UnigueID[] selectPointers) =>
+                            {
+                                foreach (var selectPointer in selectPointers)
+                                {
+                                    (Запис запис, TreeIter iter) = НовийЗапис();
+
+                                    запис.Користувач = new Користувачі_Pointer(selectPointer);
+                                    await Запис.ПісляЗміни_Користувач(запис);
+                                    Store.SetValues(iter, запис.ToArray());
+                                }
                             }
                         };
                         return page;
@@ -226,13 +236,20 @@ namespace NewProject
 
         #region ToolBar
 
-        protected override void AddRecord()
+        (Запис запис, TreeIter iter) НовийЗапис()
         {
             Запис запис = new Запис();
             Записи.Add(запис);
 
             TreeIter iter = Store.AppendValues(запис.ToArray());
             TreeViewGrid.SetCursor(Store.GetPath(iter), TreeViewGrid.Columns[0], false);
+
+            return (запис, iter);
+        }
+
+        protected override void AddRecord()
+        {
+            НовийЗапис();
         }
 
         protected override void CopyRecord(int rowNumber)
