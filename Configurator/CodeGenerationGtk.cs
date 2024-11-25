@@ -1,33 +1,10 @@
 ﻿
 /*
-Copyright (C) 2019-2023 TARAKHOMYN YURIY IVANOVYCH
-All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-/*
-Автор:    Тарахомин Юрій Іванович
-Адреса:   Україна, м. Львів
-Сайт:     accounting.org.ua
-*/
-  
-/*
  *
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 15.11.2024 11:44:15
+ * Дата конфігурації: 25.11.2024 20:10:57
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -95,9 +72,9 @@ namespace NewProject_1_0.Довідники.ТабличніСписки
 
         public static UnigueID? DirectoryPointerItem { get; set; }
         public static UnigueID? SelectPointerItem { get; set; }
-        public static TreePath? FirstPath;
-        public static TreePath? SelectPath;
-        public static TreePath? CurrentPath;
+        public static TreePath? FirstPath { get; private set; }
+        public static TreePath? SelectPath { get; private set; }
+        public static TreePath? CurrentPath { get; private set; }
 
         public static ListBox CreateFilter(TreeView treeView)
         {
@@ -139,6 +116,8 @@ namespace NewProject_1_0.Довідники.ТабличніСписки
 
             
 
+            string? UidSelect = SelectPointerItem?.ToString() ?? DirectoryPointerItem?.ToString();
+
             while (Користувачі_Select.MoveNext())
             {
                 Довідники.Користувачі_Pointer? cur = Користувачі_Select.Current;
@@ -160,13 +139,7 @@ namespace NewProject_1_0.Довідники.ТабличніСписки
 
                     CurrentPath = Store.GetPath(CurrentIter);
                     FirstPath ??= CurrentPath;
-
-                    if (DirectoryPointerItem != null || SelectPointerItem != null)
-                    {
-                        string UidSelect = SelectPointerItem != null ? SelectPointerItem.ToString() : DirectoryPointerItem!.ToString();
-                        if (Record.ID == UidSelect)
-                            SelectPath = CurrentPath;
-                    }
+                    if (UidSelect != null && Record.ID == UidSelect) SelectPath = CurrentPath;
                 }
             }
             
@@ -247,9 +220,9 @@ namespace NewProject_1_0.Документи.ТабличніСписки
 
         public static UnigueID? DocumentPointerItem { get; set; }
         public static UnigueID? SelectPointerItem { get; set; }
-        public static TreePath? FirstPath;
-        public static TreePath? SelectPath;
-        public static TreePath? CurrentPath;
+        public static TreePath? FirstPath { get; private set; }
+        public static TreePath? SelectPath { get; private set; }
+        public static TreePath? CurrentPath { get; private set; }
 
         public static ListBox CreateFilter(TreeView treeView)
         {
@@ -290,6 +263,8 @@ namespace NewProject_1_0.Документи.ТабличніСписки
             ListStore Store = (ListStore)treeView.Model;
             Store.Clear();
 
+            string? UidSelect = SelectPointerItem?.ToString() ?? DocumentPointerItem?.ToString();
+
             while (НовийДок_Select.MoveNext())
             {
                 Документи.НовийДок_Pointer? cur = НовийДок_Select.Current;
@@ -312,13 +287,7 @@ namespace NewProject_1_0.Документи.ТабличніСписки
                     TreeIter CurrentIter = Store.AppendValues(Record.ToArray());
                     CurrentPath = Store.GetPath(CurrentIter);
                     FirstPath ??= CurrentPath;
-
-                    if (DocumentPointerItem != null || SelectPointerItem != null)
-                    {
-                        string UidSelect = SelectPointerItem != null ? SelectPointerItem.ToString() : DocumentPointerItem!.ToString();
-                        if (Record.ID == UidSelect)
-                            SelectPath = CurrentPath;
-                    }
+                    if (UidSelect != null && Record.ID == UidSelect) SelectPath = CurrentPath;
                 }
             }
             if (SelectPath != null)
@@ -429,8 +398,8 @@ namespace NewProject_1_0.Документи.ТабличніСписки
         }
 
         public static UnigueID? SelectPointerItem { get; set; }
-        public static TreePath? SelectPath;
-        public static TreePath? CurrentPath;
+        public static TreePath? SelectPath { get; private set; }
+        public static TreePath? CurrentPath { get; private set; }
 
         // Завантаження даних
         public static async ValueTask LoadRecords(TreeView treeView) 
@@ -500,12 +469,7 @@ namespace NewProject_1_0.Документи.ТабличніСписки
 
                 TreeIter CurrentIter = Store.AppendValues(record.ToArray());
                 CurrentPath = Store.GetPath(CurrentIter);
-
-                if (SelectPointerItem != null)
-                {
-                    if (record.ID == SelectPointerItem.ToString())
-                        SelectPath = CurrentPath;
-                }
+                if (SelectPointerItem != null && record.ID == SelectPointerItem.ToString()) SelectPath = CurrentPath;
             }
             if (SelectPath != null)
                 treeView.SetCursor(SelectPath, treeView.Columns[0], false);
@@ -596,8 +560,8 @@ namespace NewProject_1_0.РегістриНакопичення.Табличні
         }
 
         public static UnigueID? SelectPointerItem { get; set; }
-        public static TreePath? SelectPath;
-        public static TreePath? CurrentPath;
+        public static TreePath? SelectPath { get; private set; }
+        public static TreePath? CurrentPath { get; private set; }
 
         public static async ValueTask LoadRecords(TreeView treeView, bool docname_required = true, bool position_last = true)
         {
@@ -631,10 +595,7 @@ namespace NewProject_1_0.РегістриНакопичення.Табличні
 
                 TreeIter CurrentIter = Store.AppendValues(row.ToArray());
                 CurrentPath = Store.GetPath(CurrentIter);
-
-                if (SelectPointerItem != null)
-                    if (row.ID == SelectPointerItem.ToString())
-                        SelectPath = CurrentPath;
+                if (SelectPointerItem != null && row.ID == SelectPointerItem.ToString()) SelectPath = CurrentPath;
             }
             if (position_last)
             {
