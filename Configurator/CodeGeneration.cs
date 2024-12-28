@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 25.11.2024 20:10:57
+ * Дата конфігурації: 28.12.2024 16:08:27
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -69,23 +69,17 @@ namespace NewProject_1_0
     {
         /*
           Функція для типу який задається користувачем.
-          Повертає презентацію для uuidAndText.
-          В @pointer - повертає групу (Документи або Довідники)
-            @type - повертає назву типу
+          Повертає презентацію для uuidAndText
         */
         public static async ValueTask<CompositePointerPresentation_Record> CompositePointerPresentation(UuidAndText uuidAndText)
         {
             CompositePointerPresentation_Record record = new();
 
-            if (string.IsNullOrEmpty(uuidAndText.Text) || uuidAndText.Text.IndexOf(".") == -1)
-                return record;
-
-            string[] pointer_and_type = uuidAndText.Text.Split(".", StringSplitOptions.None);
-
-            if (pointer_and_type.Length == 2)
+            (bool result, string pointerGroup, string pointerType) = Configuration.PointerParse(uuidAndText.Text, out Exception? _);
+            if (result)
             {
-                record.pointer = pointer_and_type[0];
-                record.type = pointer_and_type[1];
+                record.pointer = pointerGroup;
+                record.type = pointerType;
 
                 if (!uuidAndText.IsEmpty())
                     if (record.pointer == "Довідники") 
