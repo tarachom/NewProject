@@ -204,13 +204,14 @@ namespace NewProject
 
         public override async ValueTask LoadRecords()
         {
-            Store.Clear();
-            Записи.Clear();
-
             if (ЕлементВласник != null)
             {
                 ЕлементВласник.Контакти_TablePart.FillJoin([]);
                 await ЕлементВласник.Контакти_TablePart.Read();
+
+                Записи.Clear();
+                Store.Clear();
+
                 foreach (Користувачі_Контакти_TablePart.Record record in ЕлементВласник.Контакти_TablePart.Records)
                 {
                     Запис запис = new Запис
@@ -230,6 +231,8 @@ namespace NewProject
                     Записи.Add(запис);
                     Store.AppendValues(запис.ToArray());
                 }
+
+                SelectRowActivated();
             }
         }
 
