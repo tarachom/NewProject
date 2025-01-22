@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>15.01.2025 20:06:32</DateTimeSave>
+  <DateTimeSave>22.01.2025 21:28:40</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -23,6 +23,24 @@
               <Name>ПеріодиЖурналів</Name>
               <Table>tab_a80</Table>
               <Desc>Використовується для збереження періоду для журналів та звітів</Desc>
+              <PredefinedFields>
+                <PredefinedField>
+                  <Name>uid</Name>
+                  <NameInTable>uid</NameInTable>
+                  <Type>any_pointer</Type>
+                  <IsPrimaryKey>1</IsPrimaryKey>
+                  <IsIndex>0</IsIndex>
+                  <IsNotNull>1</IsNotNull>
+                </PredefinedField>
+                <PredefinedField>
+                  <Name>owner</Name>
+                  <NameInTable>owner</NameInTable>
+                  <Type>any_pointer</Type>
+                  <IsPrimaryKey>0</IsPrimaryKey>
+                  <IsIndex>1</IsIndex>
+                  <IsNotNull>1</IsNotNull>
+                </PredefinedField>
+              </PredefinedFields>
               <Fields>
                 <Field>
                   <Name>Користувач</Name>
@@ -113,6 +131,24 @@
       <Desc>Користувачі</Desc>
       <AutoNum>1</AutoNum>
       <Type>Normal</Type>
+      <PredefinedFields>
+        <PredefinedField>
+          <Name>uid</Name>
+          <NameInTable>uid</NameInTable>
+          <Type>any_pointer</Type>
+          <IsPrimaryKey>1</IsPrimaryKey>
+          <IsIndex>0</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>deletion_label</Name>
+          <NameInTable>deletion_label</NameInTable>
+          <Type>boolean</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+      </PredefinedFields>
       <Fields>
         <Field>
           <Name>Назва</Name>
@@ -165,6 +201,24 @@
         <TablePart>
           <Name>Контакти</Name>
           <Table>tab_a15</Table>
+          <PredefinedFields>
+            <PredefinedField>
+              <Name>uid</Name>
+              <NameInTable>uid</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>1</IsPrimaryKey>
+              <IsIndex>0</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+            <PredefinedField>
+              <Name>owner</Name>
+              <NameInTable>owner</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>0</IsPrimaryKey>
+              <IsIndex>1</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+          </PredefinedFields>
           <Fields>
             <Field>
               <Name>Тип</Name>
@@ -362,12 +416,12 @@
         </TabularList>
       </TabularLists>
       <TriggerFunctions>
-        <New Action="1">Користувачі_Triggers.New</New>
-        <Copying Action="1">Користувачі_Triggers.Copying</Copying>
-        <BeforeSave Action="0">Користувачі_Triggers.BeforeSave</BeforeSave>
-        <AfterSave Action="0">Користувачі_Triggers.AfterSave</AfterSave>
-        <SetDeletionLabel Action="0">Користувачі_Triggers.SetDeletionLabel</SetDeletionLabel>
-        <BeforeDelete Action="0">Користувачі_Triggers.BeforeDelete</BeforeDelete>
+        <New Action="1">New</New>
+        <Copying Action="1">Copying</Copying>
+        <BeforeSave Action="0">BeforeSave</BeforeSave>
+        <AfterSave Action="0">AfterSave</AfterSave>
+        <SetDeletionLabel Action="0">SetDeletionLabel</SetDeletionLabel>
+        <BeforeDelete Action="0">BeforeDelete</BeforeDelete>
       </TriggerFunctions>
       <Forms>
         <Form>
@@ -445,6 +499,40 @@
       <Table>tab_a01</Table>
       <AutoNum>1</AutoNum>
       <ExportXml>1</ExportXml>
+      <PredefinedFields>
+        <PredefinedField>
+          <Name>uid</Name>
+          <NameInTable>uid</NameInTable>
+          <Type>any_pointer</Type>
+          <IsPrimaryKey>1</IsPrimaryKey>
+          <IsIndex>0</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>deletion_label</Name>
+          <NameInTable>deletion_label</NameInTable>
+          <Type>boolean</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>spend</Name>
+          <NameInTable>spend</NameInTable>
+          <Type>boolean</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>spend_date</Name>
+          <NameInTable>spend_date</NameInTable>
+          <Type>timestamp without time zone</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>0</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+      </PredefinedFields>
       <Fields>
         <Field>
           <Name>Назва</Name>
@@ -498,6 +586,24 @@
         <TablePart>
           <Name>Накопичення</Name>
           <Table>tab_a03</Table>
+          <PredefinedFields>
+            <PredefinedField>
+              <Name>uid</Name>
+              <NameInTable>uid</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>1</IsPrimaryKey>
+              <IsIndex>0</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+            <PredefinedField>
+              <Name>owner</Name>
+              <NameInTable>owner</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>0</IsPrimaryKey>
+              <IsIndex>1</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+          </PredefinedFields>
           <Fields>
             <Field>
               <Name>Користувач</Name>
@@ -606,16 +712,16 @@
         <Name>РегНакопичення</Name>
       </AllowRegisterAccumulation>
       <TriggerFunctions>
-        <New Action="1">НовийДок_Triggers.New</New>
-        <Copying Action="1">НовийДок_Triggers.Copying</Copying>
-        <BeforeSave Action="1">НовийДок_Triggers.BeforeSave</BeforeSave>
-        <AfterSave Action="0">НовийДок_Triggers.AfterSave</AfterSave>
-        <SetDeletionLabel Action="0">НовийДок_Triggers.SetDeletionLabel</SetDeletionLabel>
-        <BeforeDelete Action="0">НовийДок_Triggers.BeforeDelete</BeforeDelete>
+        <New Action="1">New</New>
+        <Copying Action="1">Copying</Copying>
+        <BeforeSave Action="1">BeforeSave</BeforeSave>
+        <AfterSave Action="0">AfterSave</AfterSave>
+        <SetDeletionLabel Action="0">SetDeletionLabel</SetDeletionLabel>
+        <BeforeDelete Action="0">BeforeDelete</BeforeDelete>
       </TriggerFunctions>
       <SpendFunctions>
-        <Spend>НовийДок_SpendTheDocument.Spend</Spend>
-        <ClearSpend>НовийДок_SpendTheDocument.ClearSpend</ClearSpend>
+        <Spend>Spend</Spend>
+        <ClearSpend>ClearSpend</ClearSpend>
       </SpendFunctions>
       <Forms>
         <Form>
@@ -818,6 +924,40 @@
       <Table>tab_a02</Table>
       <Type>Residues</Type>
       <NoSummary>0</NoSummary>
+      <PredefinedFields>
+        <PredefinedField>
+          <Name>uid</Name>
+          <NameInTable>uid</NameInTable>
+          <Type>any_pointer</Type>
+          <IsPrimaryKey>1</IsPrimaryKey>
+          <IsIndex>0</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>period</Name>
+          <NameInTable>period</NameInTable>
+          <Type>timestamp without time zone</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>income</Name>
+          <NameInTable>income</NameInTable>
+          <Type>boolean</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+        <PredefinedField>
+          <Name>owner</Name>
+          <NameInTable>owner</NameInTable>
+          <Type>any_pointer</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>1</IsNotNull>
+        </PredefinedField>
+      </PredefinedFields>
       <DimensionFields>
         <Fields>
           <Field>
@@ -856,6 +996,24 @@
           <Name>Залишки</Name>
           <Table>tab_a04</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <PredefinedFields>
+            <PredefinedField>
+              <Name>uid</Name>
+              <NameInTable>uid</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>1</IsPrimaryKey>
+              <IsIndex>0</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+            <PredefinedField>
+              <Name>owner</Name>
+              <NameInTable>owner</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>0</IsPrimaryKey>
+              <IsIndex>1</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+          </PredefinedFields>
           <Fields>
             <Field>
               <Name>Період</Name>
@@ -893,6 +1051,24 @@
           <Name>ЗалишкиТаОбороти</Name>
           <Table>tab_a05</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <PredefinedFields>
+            <PredefinedField>
+              <Name>uid</Name>
+              <NameInTable>uid</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>1</IsPrimaryKey>
+              <IsIndex>0</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+            <PredefinedField>
+              <Name>owner</Name>
+              <NameInTable>owner</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>0</IsPrimaryKey>
+              <IsIndex>1</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+          </PredefinedFields>
           <Fields>
             <Field>
               <Name>Період</Name>
@@ -948,6 +1124,24 @@
           <Name>Підсумки</Name>
           <Table>tab_a06</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <PredefinedFields>
+            <PredefinedField>
+              <Name>uid</Name>
+              <NameInTable>uid</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>1</IsPrimaryKey>
+              <IsIndex>0</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+            <PredefinedField>
+              <Name>owner</Name>
+              <NameInTable>owner</NameInTable>
+              <Type>any_pointer</Type>
+              <IsPrimaryKey>0</IsPrimaryKey>
+              <IsIndex>1</IsIndex>
+              <IsNotNull>1</IsNotNull>
+            </PredefinedField>
+          </PredefinedFields>
           <Fields>
             <Field>
               <Name>Користувач</Name>

@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 15.01.2025 20:06:32
+ * Дата конфігурації: 22.01.2025 21:28:40
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
@@ -374,7 +374,8 @@ namespace NewProject_1_0.Довідники
 
             await copy.New();
             
-            await Користувачі_Triggers.Copying(copy, this);
+            await Користувачі_Triggers.Copying(copy, this);      
+            
             return copy;
         }
 
@@ -818,9 +819,11 @@ namespace NewProject_1_0.Документи
         async void ClearRegAccum()
         {
             
-            /* РегНакопичення */
-            РегістриНакопичення.РегНакопичення_RecordsSet РегНакопичення_regAccum = new РегістриНакопичення.РегНакопичення_RecordsSet();
-            await РегНакопичення_regAccum.Delete(this.UnigueID.UGuid);
+            // РегНакопичення
+            {
+                РегістриНакопичення.РегНакопичення_RecordsSet regAccum = new РегістриНакопичення.РегНакопичення_RecordsSet();
+                await regAccum.Delete(this.UnigueID.UGuid);
+            }
             
         }
 
@@ -856,7 +859,8 @@ namespace NewProject_1_0.Документи
 
             await copy.New();
             
-                await НовийДок_Triggers.Copying(copy, this);
+                await НовийДок_Triggers.Copying(copy, this);      
+            
             return copy;
         }
 
@@ -929,7 +933,7 @@ namespace NewProject_1_0.Документи
         public async ValueTask<bool> SpendTheDocument(DateTime spendDate)
         {
             НовийДок_Objest? obj = await GetDocumentObject();
-            return (obj != null ? await obj.SpendTheDocument(spendDate) : false);
+            return obj != null && await obj.SpendTheDocument(spendDate);;
         }
 
         public async ValueTask ClearSpendTheDocument()
@@ -945,10 +949,12 @@ namespace NewProject_1_0.Документи
                 
                 if (label)
                 {
+                    
                     await НовийДок_SpendTheDocument.ClearSpend(obj);
                     await BaseSpend(false, DateTime.MinValue);
                 }
                 
+            
             await base.BaseDeletionLabel(label);
         }
 
