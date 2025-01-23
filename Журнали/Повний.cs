@@ -8,8 +8,8 @@ using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
 
-using NewProject_1_0;
-using ТабличніСписки = NewProject_1_0.Документи.ТабличніСписки;
+using GeneratedCode;
+using ТабличніСписки = GeneratedCode.Документи.ТабличніСписки;
 
 namespace NewProject
 {

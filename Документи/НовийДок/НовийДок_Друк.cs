@@ -6,8 +6,8 @@
 */
 
 using AccountingSoftware;
-using NewProject_1_0.Константи;
-using NewProject_1_0.Документи;
+using GeneratedCode.Константи;
+using GeneratedCode.Документи;
 
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;

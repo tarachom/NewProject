@@ -2,12 +2,12 @@
 <Configuration>
   <Name>Новий проєкт</Name>
   <Subtitle>Проєкт для розробки нової конфігурації</Subtitle>
-  <NameSpaceGenerationCode>NewProject_1_0</NameSpaceGenerationCode>
+  <NameSpaceGeneratedCode>GeneratedCode</NameSpaceGeneratedCode>
   <NameSpace>NewProject</NameSpace>
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>22.01.2025 21:28:40</DateTimeSave>
+  <DateTimeSave>23.01.2025 20:33:46</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>

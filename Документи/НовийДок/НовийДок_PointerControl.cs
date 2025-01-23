@@ -6,7 +6,7 @@
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
-using NewProject_1_0.Документи;
+using GeneratedCode.Документи;
 
 namespace NewProject
 {

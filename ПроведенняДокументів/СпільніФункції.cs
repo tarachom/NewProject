@@ -6,7 +6,7 @@
 
 using AccountingSoftware;
 
-namespace NewProject_1_0.Документи
+namespace GeneratedCode.Документи
 {
     class СпільніФункції
     {

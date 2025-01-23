@@ -4,24 +4,24 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 22.01.2025 21:28:40
+ * Дата конфігурації: 23.01.2025 20:33:46
  *
  *
- * Цей код згенерований в Конфігураторі 3. Шаблон CodeGeneration.xslt
+ * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
  *
  */
 
 using AccountingSoftware;
 using System.Xml;
 
-namespace NewProject_1_0
+namespace GeneratedCode
 {
     public static class Config
     {
         #region Const
 
         //Простір імен згенерованого коду
-        public const string NameSpageCodeGeneration = "NewProject_1_0";
+        public const string NameSpageCodeGeneration = "GeneratedCode";
 
         //Простір імен програми
         public const string NameSpageProgram = "NewProject";
@@ -104,7 +104,7 @@ namespace NewProject_1_0
     }
 }
 
-namespace NewProject_1_0.Константи
+namespace GeneratedCode.Константи
 {
     
 	  #region CONSTANTS BLOCK "Системні"
@@ -265,7 +265,7 @@ namespace NewProject_1_0.Константи
     
 }
 
-namespace NewProject_1_0.Довідники
+namespace GeneratedCode.Довідники
 {
     
     #region DIRECTORY "Користувачі"
@@ -654,7 +654,7 @@ namespace NewProject_1_0.Довідники
     
 }
 
-namespace NewProject_1_0.Перелічення
+namespace GeneratedCode.Перелічення
 {
     
     #region ENUM "ТипиКонтактноїІнформації"
@@ -714,7 +714,7 @@ namespace NewProject_1_0.Перелічення
     }
 }
 
-namespace NewProject_1_0.Документи
+namespace GeneratedCode.Документи
 {
     
     #region DOCUMENT "НовийДок"
@@ -1204,7 +1204,7 @@ namespace NewProject_1_0.Документи
     
 }
 
-namespace NewProject_1_0.Журнали
+namespace GeneratedCode.Журнали
 {
     #region Journal
     public class JournalSelect: AccountingSoftware.JournalSelect
@@ -1226,12 +1226,12 @@ namespace NewProject_1_0.Журнали
     #endregion
 }
 
-namespace NewProject_1_0.РегістриВідомостей
+namespace GeneratedCode.РегістриВідомостей
 {
     
 }
 
-namespace NewProject_1_0.РегістриНакопичення
+namespace GeneratedCode.РегістриНакопичення
 {
     public static class VirtualTablesСalculation
     {

@@ -5,7 +5,7 @@
 
 */
 
-using NewProject_1_0;
+using GeneratedCode;
 
 namespace NewProject
 {

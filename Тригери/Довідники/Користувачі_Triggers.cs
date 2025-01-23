@@ -4,9 +4,9 @@
     Тригери для довідника Користувачі
 */
 
-using NewProject_1_0.Константи;
+using GeneratedCode.Константи;
 
-namespace NewProject_1_0.Довідники
+namespace GeneratedCode.Довідники
 {
     class Користувачі_Triggers
     {

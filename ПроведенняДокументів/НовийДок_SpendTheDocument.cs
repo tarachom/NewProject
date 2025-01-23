@@ -4,13 +4,13 @@
     Модуль проведення для документу НовийДок
 */
 
-using NewProject_1_0.Константи;
-using NewProject_1_0.Довідники;
-using NewProject_1_0.Документи;
-using NewProject_1_0.РегістриНакопичення;
+using GeneratedCode.Константи;
+using GeneratedCode.Довідники;
+using GeneratedCode.Документи;
+using GeneratedCode.РегістриНакопичення;
 using NewProject;
 
-namespace NewProject_1_0.Документи
+namespace GeneratedCode.Документи
 {
     class НовийДок_SpendTheDocument
     {

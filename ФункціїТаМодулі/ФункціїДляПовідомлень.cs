@@ -9,7 +9,7 @@ using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
 
-using NewProject_1_0;
+using GeneratedCode;
 
 namespace NewProject
 {

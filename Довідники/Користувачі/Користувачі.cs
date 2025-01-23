@@ -7,9 +7,9 @@
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
-using NewProject_1_0;
-using NewProject_1_0.Довідники;
-using ТабличніСписки = NewProject_1_0.Довідники.ТабличніСписки;
+using GeneratedCode;
+using GeneratedCode.Довідники;
+using ТабличніСписки = GeneratedCode.Довідники.ТабличніСписки;
 
 namespace NewProject
 {

@@ -7,7 +7,7 @@
 
 using Gtk;
 using InterfaceGtk;
-using NewProject_1_0;
+using GeneratedCode;
 
 namespace NewProject
 {

@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 22.01.2025 21:28:40
+ * Дата конфігурації: 23.01.2025 20:33:46
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -14,10 +14,10 @@
 using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
-using NewProject_1_0.Перелічення;
+using GeneratedCode.Перелічення;
 using NewProject;
 
-namespace NewProject_1_0.Довідники.ТабличніСписки
+namespace GeneratedCode.Довідники.ТабличніСписки
 {
     
     #region DIRECTORY "Користувачі"
@@ -152,7 +152,7 @@ namespace NewProject_1_0.Довідники.ТабличніСписки
     
 }
 
-namespace NewProject_1_0.Документи.ТабличніСписки
+namespace GeneratedCode.Документи.ТабличніСписки
 {
     
     #region DOCUMENT "НовийДок"
@@ -482,12 +482,12 @@ namespace NewProject_1_0.Документи.ТабличніСписки
     
 }
 
-namespace NewProject_1_0.РегістриВідомостей.ТабличніСписки
+namespace GeneratedCode.РегістриВідомостей.ТабличніСписки
 {
     
 }
 
-namespace NewProject_1_0.РегістриНакопичення.ТабличніСписки
+namespace GeneratedCode.РегістриНакопичення.ТабличніСписки
 {
     
     #region REGISTER "РегНакопичення"

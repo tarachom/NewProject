@@ -6,7 +6,7 @@
 
 using InterfaceGtk;
 using AccountingSoftware;
-using NewProject_1_0.Довідники;
+using GeneratedCode.Довідники;
 
 namespace NewProject
 {

@@ -9,7 +9,7 @@
 
 using InterfaceGtk;
 using AccountingSoftware;
-using ТабличніСписки = NewProject_1_0.РегістриНакопичення.ТабличніСписки;
+using ТабличніСписки = GeneratedCode.РегістриНакопичення.ТабличніСписки;
 
 namespace NewProject
 {

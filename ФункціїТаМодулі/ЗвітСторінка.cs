@@ -22,7 +22,7 @@ limitations under the License.
 */
 
 using InterfaceGtk;
-using NewProject_1_0;
+using GeneratedCode;
 using AccountingSoftware;
 
 namespace NewProject

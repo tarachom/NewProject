@@ -6,7 +6,7 @@
 
 using Gtk;
 using InterfaceGtk;
-using NewProject_1_0.РегістриНакопичення;
+using GeneratedCode.РегістриНакопичення;
 
 namespace NewProject
 {

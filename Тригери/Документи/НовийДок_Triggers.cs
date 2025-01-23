@@ -4,9 +4,9 @@
     Тригери для документу НовийДок
 */
 
-using NewProject_1_0.Константи;
+using GeneratedCode.Константи;
 
-namespace NewProject_1_0.Документи
+namespace GeneratedCode.Документи
 {
     class НовийДок_Triggers
     {

@@ -1,8 +1,8 @@
 using Gtk;
 using InterfaceGtk;
 
-using NewProject_1_0;
-using NewProject_1_0.Довідники;
+using GeneratedCode;
+using GeneratedCode.Довідники;
 
 namespace NewProject
 {
