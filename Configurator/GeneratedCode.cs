@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 23.01.2025 20:33:46
+ * Дата конфігурації: 25.01.2025 17:25:32
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -395,12 +395,7 @@ namespace GeneratedCode.Довідники
         {
             return new Користувачі_Pointer(UnigueID.UGuid);
         }
-
-        public override UuidAndText GetBasis()
-        {
-            return new UuidAndText(UnigueID.UGuid, Користувачі_Const.POINTER);
-        }
-
+        
         public async ValueTask<string> GetPresentation()
         {
             return await base.BasePresentation(Користувачі_Const.PRESENTATION_FIELDS);
@@ -418,12 +413,12 @@ namespace GeneratedCode.Довідники
 
     public class Користувачі_Pointer : DirectoryPointer
     {
-        public Користувачі_Pointer(object? uid = null) : base(Config.Kernel, "tab_a14")
+        public Користувачі_Pointer(object? uid = null) : base(Config.Kernel, "tab_a14", Користувачі_Const.TYPE)
         {
             base.Init(new UnigueID(uid), null);
         }
         
-        public Користувачі_Pointer(UnigueID uid, Dictionary<string, object>? fields = null) : base(Config.Kernel, "tab_a14")
+        public Користувачі_Pointer(UnigueID uid, Dictionary<string, object>? fields = null) : base(Config.Kernel, "tab_a14", Користувачі_Const.TYPE)
         {
             base.Init(uid, fields);
         }
@@ -440,12 +435,14 @@ namespace GeneratedCode.Довідники
             return new Користувачі_Pointer(base.UnigueID, base.Fields) { Назва = Назва };
         }
 
-        public string Назва { get; set; } = "";
-
+        public string Назва
+        {
+            get { return Name; } set { Name = value; }
+        }
 
         public async ValueTask<string> GetPresentation()
         {
-            return Назва = await base.BasePresentation(Користувачі_Const.PRESENTATION_FIELDS);
+            return Name = await base.BasePresentation(Користувачі_Const.PRESENTATION_FIELDS);
         }
 
         public static void GetJoin(Query querySelect, string joinField, string parentTable, string joinTableAlias, string fieldAlias)
@@ -458,24 +455,15 @@ namespace GeneratedCode.Довідники
 
         public async ValueTask SetDeletionLabel(bool label = true)
         {
-            Користувачі_Objest? obj = await GetDirectoryObject();
-            if (obj != null)
-            {
-                
-                await base.BaseDeletionLabel(label);
-            }
+            
+            await base.BaseDeletionLabel(label);
         }
 		
         public Користувачі_Pointer GetEmptyPointer()
         {
             return new Користувачі_Pointer();
         }
-
-        public UuidAndText GetBasis()
-        {
-            return new UuidAndText(UnigueID.UGuid, Користувачі_Const.POINTER);
-        }
-
+        
         public void Clear()
         {
             Init(new UnigueID(), null);
@@ -785,7 +773,7 @@ namespace GeneratedCode.Документи
                 return false;
         }
         
-        public async Task<bool> Save()
+        public async ValueTask<bool> Save()
         {
             
                 await НовийДок_Triggers.BeforeSave(this);
@@ -815,7 +803,7 @@ namespace GeneratedCode.Документи
                 
         }
 
-        /* Очищення всіх регістрів */
+        /* Очищення регістрів */
         async void ClearRegAccum()
         {
             
@@ -882,12 +870,7 @@ namespace GeneratedCode.Документи
         {
             return new НовийДок_Pointer(UnigueID.UGuid);
         }
-
-        public override UuidAndText GetBasis()
-        {
-            return new UuidAndText(UnigueID.UGuid, НовийДок_Const.POINTER);
-        }
-
+        
         public async ValueTask<string> GetPresentation()
         {
             return await base.BasePresentation(НовийДок_Const.PRESENTATION_FIELDS);
@@ -905,7 +888,7 @@ namespace GeneratedCode.Документи
     
     public class НовийДок_Pointer : DocumentPointer
     {
-        public НовийДок_Pointer(object? uid = null) : base(Config.Kernel, "tab_a01", "НовийДок")
+        public НовийДок_Pointer(object? uid = null) : base(Config.Kernel, "tab_a01", НовийДок_Const.TYPE)
         {
             base.Init(new UnigueID(uid), null);
         }
@@ -915,11 +898,14 @@ namespace GeneratedCode.Документи
             base.Init(uid, fields);
         }
 
-        public string Назва { get; set; } = "";
+        public string Назва
+        {
+            get { return Name; } set { Name = value; }
+        }
 
         public async ValueTask<string> GetPresentation()
         {
-            return Назва = await base.BasePresentation(НовийДок_Const.PRESENTATION_FIELDS);
+            return Name = await base.BasePresentation(НовийДок_Const.PRESENTATION_FIELDS);
         }
 
         public static void GetJoin(Query querySelect, string joinField, string parentTable, string joinTableAlias, string fieldAlias)
@@ -933,7 +919,7 @@ namespace GeneratedCode.Документи
         public async ValueTask<bool> SpendTheDocument(DateTime spendDate)
         {
             НовийДок_Objest? obj = await GetDocumentObject();
-            return obj != null && await obj.SpendTheDocument(spendDate);;
+            return obj != null && await obj.SpendTheDocument(spendDate);
         }
 
         public async ValueTask ClearSpendTheDocument()
@@ -967,12 +953,7 @@ namespace GeneratedCode.Документи
         {
             return new НовийДок_Pointer();
         }
-
-        public override UuidAndText GetBasis()
-        {
-            return new UuidAndText(UnigueID.UGuid, НовийДок_Const.POINTER);
-        }
-
+        
         public async ValueTask<НовийДок_Objest?> GetDocumentObject(bool readAllTablePart = false)
         {
             if (this.IsEmpty()) return null;
