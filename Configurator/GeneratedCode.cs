@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 25.01.2025 17:25:32
+ * Дата конфігурації: 12.03.2025 12:40:34
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -476,7 +476,7 @@ namespace GeneratedCode.Довідники
         public Користувачі_Select() : base(Config.Kernel, "tab_a14") { }        
         public async ValueTask<bool> Select() { return await base.BaseSelect(); }
         public async ValueTask<bool> SelectSingle() { if (await base.BaseSelectSingle()) { MoveNext(); return true; } else { Current = null; return false; } }
-        public bool MoveNext() { if (base.MoveToPosition() && base.DirectoryPointerPosition.HasValue) { Current = new Користувачі_Pointer(base.DirectoryPointerPosition.Value.UnigueID, base.DirectoryPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
+        public bool MoveNext() { if (base.MoveToPosition() && base.CurrentPointerPosition.HasValue) { Current = new Користувачі_Pointer(base.CurrentPointerPosition.Value.UnigueID, base.CurrentPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
         public Користувачі_Pointer? Current { get; private set; }
         
         public async ValueTask<Користувачі_Pointer> FindByField(string name, object value)
@@ -974,7 +974,7 @@ namespace GeneratedCode.Документи
         public НовийДок_Select() : base(Config.Kernel, "tab_a01") { }
         public async ValueTask<bool> Select() { return await base.BaseSelect(); }
         public async ValueTask<bool> SelectSingle() { if (await base.BaseSelectSingle()) { MoveNext(); return true; } else { Current = null; return false; } }
-        public bool MoveNext() { if (base.MoveToPosition() && base.DocumentPointerPosition.HasValue) { Current = new НовийДок_Pointer(base.DocumentPointerPosition.Value.UnigueID, base.DocumentPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
+        public bool MoveNext() { if (base.MoveToPosition() && base.CurrentPointerPosition.HasValue) { Current = new НовийДок_Pointer(base.CurrentPointerPosition.Value.UnigueID, base.CurrentPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
         public НовийДок_Pointer? Current { get; private set; }
     }
 
