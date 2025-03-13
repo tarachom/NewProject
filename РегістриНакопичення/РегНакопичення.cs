@@ -22,7 +22,7 @@ namespace NewProject
 
         #region Override
 
-        protected override async ValueTask LoadRecords()
+        public override async ValueTask LoadRecords()
         {
             ТабличніСписки.РегНакопичення_Записи.SelectPointerItem = SelectPointerItem;
             ТабличніСписки.РегНакопичення_Записи.ДодатиВідбірПоПеріоду(TreeViewGrid, Період.Period, Період.DateStart, Період.DateStop);
@@ -30,7 +30,7 @@ namespace NewProject
             await ТабличніСписки.РегНакопичення_Записи.LoadRecords(TreeViewGrid);
         }
 
-        protected override async ValueTask LoadRecords_OnSearch(string searchText)
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
         {
             ТабличніСписки.РегНакопичення_Записи.ОчиститиВідбір(TreeViewGrid);
 

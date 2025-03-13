@@ -18,16 +18,11 @@ namespace NewProject
         public Користувачі() : base()
         {
             ТабличніСписки.Користувачі_Записи.AddColumns(TreeViewGrid);
-            Config.Kernel.DirectoryObjectChanged += async (object? sender, Dictionary<string, List<Guid>> directory) =>
-            {
-                if (directory.Any((x) => x.Key == Користувачі_Const.TYPE))
-                    await LoadRecords();
-            };
         }
 
         #region Override
 
-        protected override async ValueTask LoadRecords()
+        public override async ValueTask LoadRecords()
         {
             ТабличніСписки.Користувачі_Записи.SelectPointerItem = SelectPointerItem;
             ТабличніСписки.Користувачі_Записи.DirectoryPointerItem = DirectoryPointerItem;
@@ -37,7 +32,7 @@ namespace NewProject
             await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
         }
 
-        protected override async ValueTask LoadRecords_OnSearch(string searchText)
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
         {
             ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
 
@@ -65,6 +60,12 @@ namespace NewProject
         protected override async ValueTask<UnigueID?> Copy(UnigueID unigueID)
         {
             return await Користувачі_Функції.Copy(unigueID);
+        }
+
+        protected override async ValueTask BeforeSetValue()
+        {
+            NotebookFunction.AddChangeFunc(Program.GeneralNotebook, Name, LoadRecords, Користувачі_Const.POINTER);
+            await LoadRecords();
         }
 
         #endregion
