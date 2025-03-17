@@ -13,7 +13,7 @@ namespace NewProject
         public void OpenFirstPages()
         {
             PageHome page = new PageHome();
-            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, "Стартова", () => page);
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, "Стартова", () => page, false, null, null, true);
         }
 
         public async void SetCurrentUser()

@@ -22,6 +22,10 @@ ConfigurationParam_.xml
 *.sh
 
 #Configurator3
+*.so
+*.so
+*.8
+*.dylib
 *.dll
 Comparison.xml
 ComparisonAllData.xml
