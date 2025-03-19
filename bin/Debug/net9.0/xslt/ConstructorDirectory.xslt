@@ -193,6 +193,8 @@ namespace <xsl:value-of select="$NameSpace"/>
             }
 
             NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, page.Caption, () =&gt; page);
+            await NotebookFunction.AddLockObjectFunc(Program.GeneralNotebook, page.Name, page.Елемент);
+            await page.LockInfo(page.Елемент);
             page.SetValue();
         }
 
@@ -590,7 +592,7 @@ namespace <xsl:value-of select="$NameSpace"/>
 
         #region Override
 
-        protected override async ValueTask LoadRecords()
+        public override async ValueTask LoadRecords()
         {
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.SelectPointerItem = SelectPointerItem;
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.DirectoryPointerItem = DirectoryPointerItem;
@@ -604,7 +606,7 @@ namespace <xsl:value-of select="$NameSpace"/>
             await ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.LoadRecords(TreeViewGrid, OpenFolder);
         }
 
-        protected override async ValueTask LoadRecords_OnSearch(string searchText)
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
         {
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.ОчиститиВідбір(TreeViewGrid);
             <xsl:if test="normalize-space($DirectoryOwner) != ''">
@@ -696,7 +698,7 @@ namespace <xsl:value-of select="$NameSpace"/>
             </xsl:if>
         }
 
-        protected override async ValueTask LoadRecords()
+        public override async ValueTask LoadRecords()
         {
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.SelectPointerItem = null;
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.DirectoryPointerItem = DirectoryPointerItem;
@@ -710,7 +712,7 @@ namespace <xsl:value-of select="$NameSpace"/>
             await ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.LoadRecords(TreeViewGrid, OpenFolder);
         }
 
-        protected override async ValueTask LoadRecords_OnSearch(string searchText)
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
         {
             ТабличніСписки.<xsl:value-of select="$DirectoryName"/>_<xsl:value-of select="$TabularList"/>.ОчиститиВідбір(TreeViewGrid);
             <xsl:if test="normalize-space($DirectoryOwner) != ''">
