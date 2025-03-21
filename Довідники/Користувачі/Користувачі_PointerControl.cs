@@ -11,7 +11,7 @@ using GeneratedCode.Довідники;
 
 namespace NewProject
 {
-    class Користувачі_PointerControl : PointerControl
+    public class Користувачі_PointerControl : PointerControl
     {
         event EventHandler<Користувачі_Pointer> PointerChanged;
 

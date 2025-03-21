@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 12.03.2025 12:40:34
+ * Дата конфігурації: 21.03.2025 16:12:43
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -238,6 +238,102 @@ namespace GeneratedCode.Константи
             set
             {
                 Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a1", value);
+            }
+        }
+        public static int ЗвичайнийДовідник_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a3"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a3", value);
+            }
+        }
+        public static int ІєрархічнийДовідник_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a4"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a4", value);
+            }
+        }
+        public static int ІєрархіяВОкремомуДовіднику_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a5"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a5", value);
+            }
+        }
+        public static int ІєрархіяВОкремомуДовіднику_Папки_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a6"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a6", value);
+            }
+        }
+        public static int ПідпорядкованийДовідник_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a7"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a7", value);
+            }
+        }
+        public static int ДовідникЗТабличноюЧастиною_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a8"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a8", value);
+            }
+        }
+        public static int Країни_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_a9"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_a9", value);
+            }
+        }
+        public static int ДовідникЗТабЧастиною_Const
+        {
+            get 
+            {
+                var recordResult = Task.Run( async () => { return await Config.Kernel.DataBase.SelectConstants(SpecialTables.Constants, "col_b1"); } ).Result;
+                return recordResult.Result ? ((recordResult.Value != DBNull.Value) ? (int)recordResult.Value : 0) : 0;
+            }
+            set
+            {
+                Config.Kernel.DataBase.SaveConstants(SpecialTables.Constants, "col_b1", value);
             }
         }
              

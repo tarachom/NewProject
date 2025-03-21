@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>12.03.2025 12:40:34</DateTimeSave>
+  <DateTimeSave>21.03.2025 16:12:43</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -105,6 +105,54 @@
         <Constant>
           <Name>Користувачі</Name>
           <NameInTable>col_a1</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ЗвичайнийДовідник</Name>
+          <NameInTable>col_a3</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ІєрархічнийДовідник</Name>
+          <NameInTable>col_a4</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ІєрархіяВОкремомуДовіднику</Name>
+          <NameInTable>col_a5</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ІєрархіяВОкремомуДовіднику_Папки</Name>
+          <NameInTable>col_a6</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ПідпорядкованийДовідник</Name>
+          <NameInTable>col_a7</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ДовідникЗТабличноюЧастиною</Name>
+          <NameInTable>col_a8</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>Країни</Name>
+          <NameInTable>col_a9</NameInTable>
+          <Type>integer</Type>
+          <TabularParts />
+        </Constant>
+        <Constant>
+          <Name>ДовідникЗТабЧастиною</Name>
+          <NameInTable>col_b1</NameInTable>
           <Type>integer</Type>
           <TabularParts />
         </Constant>
