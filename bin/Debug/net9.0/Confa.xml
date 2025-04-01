@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>21.03.2025 16:12:43</DateTimeSave>
+  <DateTimeSave>24.03.2025 18:33:48</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -105,54 +105,6 @@
         <Constant>
           <Name>Користувачі</Name>
           <NameInTable>col_a1</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ЗвичайнийДовідник</Name>
-          <NameInTable>col_a3</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ІєрархічнийДовідник</Name>
-          <NameInTable>col_a4</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ІєрархіяВОкремомуДовіднику</Name>
-          <NameInTable>col_a5</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ІєрархіяВОкремомуДовіднику_Папки</Name>
-          <NameInTable>col_a6</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ПідпорядкованийДовідник</Name>
-          <NameInTable>col_a7</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ДовідникЗТабличноюЧастиною</Name>
-          <NameInTable>col_a8</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>Країни</Name>
-          <NameInTable>col_a9</NameInTable>
-          <Type>integer</Type>
-          <TabularParts />
-        </Constant>
-        <Constant>
-          <Name>ДовідникЗТабЧастиною</Name>
-          <NameInTable>col_b1</NameInTable>
           <Type>integer</Type>
           <TabularParts />
         </Constant>
@@ -475,31 +427,299 @@
       </TriggerFunctions>
       <Forms>
         <Form Modified="0">
-          <Name>Функції</Name>
-          <Desc>Функції</Desc>
-          <Type>Function</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>Швидкий вибір</Name>
+          <Desc>Швидкий вибір</Desc>
+          <Type>ListSmallSelect</Type>
+          <GeneratedCode><![CDATA[
+/*     
+        Користувачі_ШвидкийВибір.cs
+        ШвидкийВибір
+*/
+
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+using GeneratedCode.Довідники;
+using ТабличніСписки = GeneratedCode.Довідники.ТабличніСписки;
+
+namespace NewProject
+{
+    class Користувачі_ШвидкийВибір : ДовідникШвидкийВибір
+    {
+        
+        
+        public Користувачі_ШвидкийВибір() : base()
+        {
+            ТабличніСписки.Користувачі_Записи.AddColumns(TreeViewGrid);
+            
+        }
+
+        public override async ValueTask LoadRecords()
+        {
+            ТабличніСписки.Користувачі_Записи.SelectPointerItem = null;
+            ТабличніСписки.Користувачі_Записи.DirectoryPointerItem = DirectoryPointerItem;
+
+            ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
+            
+            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
+        }
+
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
+        {
+            ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
+                        
+            //Відбори
+            ТабличніСписки.Користувачі_Записи.ДодатиВідбір(TreeViewGrid, Користувачі_Функції.Відбори(searchText));
+
+            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
+        }
+
+        protected override async ValueTask OpenPageList(UnigueID? unigueID = null)
+        {
+            Користувачі page = new Користувачі()
+            {
+                DirectoryPointerItem = DirectoryPointerItem,
+                CallBack_OnSelectPointer = CallBack_OnSelectPointer,
+                CallBack_OnMultipleSelectPointer = CallBack_OnMultipleSelectPointer,
+                OpenFolder = OpenFolder
+            };
+            
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, Користувачі_Const.FULLNAME, () => page);
+            await page.SetValue();
+        }
+
+        protected override async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null)
+        {
+            await  Користувачі_Функції.OpenPageElement(IsNew, unigueID, null, CallBack_OnSelectPointer);
+            
+        }
+
+        protected override async ValueTask SetDeletionLabel(UnigueID unigueID)
+        {
+            await Користувачі_Функції.SetDeletionLabel(unigueID);
+            
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
+          <TabularList>Записи</TabularList>
+        </Form>
+        <Form Modified="0">
+          <Name>Список</Name>
+          <Desc>Список</Desc>
+          <Type>List</Type>
+          <GeneratedCode><![CDATA[
+/*     
+        Користувачі.cs
+        Список
+*/
+
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+
+using GeneratedCode;
+using GeneratedCode.Довідники;
+using ТабличніСписки = GeneratedCode.Довідники.ТабличніСписки;
+
+namespace NewProject
+{
+    public class Користувачі : ДовідникЖурнал
+    {
+        
+
+        public Користувачі() : base()
+        {
+            ТабличніСписки.Користувачі_Записи.AddColumns(TreeViewGrid);
+            
+        }
+
+        #region Override
+
+        public override async ValueTask LoadRecords()
+        {
+            ТабличніСписки.Користувачі_Записи.SelectPointerItem = SelectPointerItem;
+            ТабличніСписки.Користувачі_Записи.DirectoryPointerItem = DirectoryPointerItem;
+
+            ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
+            
+            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
+        }
+
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
+        {
+            ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
+            
+            //Відбори
+            ТабличніСписки.Користувачі_Записи.ДодатиВідбір(TreeViewGrid, Користувачі_Функції.Відбори(searchText));
+
+            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
+        }
+
+        protected override Widget? FilterRecords(Box hBox)
+        {
+            return ТабличніСписки.Користувачі_Записи.CreateFilter(TreeViewGrid);
+        }
+
+        protected override async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null)
+        {
+            await Користувачі_Функції.OpenPageElement(IsNew, unigueID, CallBack_LoadRecords, null);
+        }
+
+        protected override async ValueTask SetDeletionLabel(UnigueID unigueID)
+        {
+            await Користувачі_Функції.SetDeletionLabel(unigueID);
+        }
+
+        protected override async ValueTask<UnigueID?> Copy(UnigueID unigueID)
+        {
+            return await Користувачі_Функції.Copy(unigueID);
+        }
+
+        protected override async ValueTask BeforeSetValue()
+        {
+            NotebookFunction.AddChangeFunc(Program.GeneralNotebook, Name, LoadRecords, Користувачі_Const.POINTER);
+             await LoadRecords();
+        }
+
+        #endregion
+    }
+}
+    ]]></GeneratedCode>
+          <NotSaveToFile>0</NotSaveToFile>
+          <TabularList>Записи</TabularList>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
           <Desc>Елемент</Desc>
           <Type>Element</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <GeneratedCode><![CDATA[
+/*
+        Користувачі_Елемент.cs
+        Елемент
+*/
+
+using Gtk;
+using InterfaceGtk;
+
+using GeneratedCode.Довідники;
+using GeneratedCode.Документи;
+using GeneratedCode.Перелічення;
+
+namespace NewProject
+{
+    class Користувачі_Елемент : ДовідникЕлемент
+    {
+        public Користувачі_Objest Елемент { get; init; } = new Користувачі_Objest();
+        
+        #region Fields
+        Entry Назва = new Entry() { WidthRequest = 500 };
+                        Entry Код = new Entry() { WidthRequest = 500 };
+                        TextView Коментар = new TextView() { WrapMode = WrapMode.Word };
+                        //Guid КодВСпеціальнійТаблиці = new Guid();
+                
+        #endregion
+
+        #region TabularParts
+        
+            // Таблична частина "Контакти"
+            Користувачі_ТабличнаЧастина_Контакти Контакти = new Користувачі_ТабличнаЧастина_Контакти() { WidthRequest = 500, HeightRequest = 300 };
+        
+        #endregion
+
+        public Користувачі_Елемент() : base() 
+        { 
+            Елемент.UnigueIDChanged += UnigueIDChanged;
+            Елемент.CaptionChanged += CaptionChanged;
+
+            
+        }
+
+        protected override void CreatePack1(Box vBox)
+        {
+            
+                // Назва
+                CreateField(vBox, "Назва:", Назва);
+                            
+                // Код
+                CreateField(vBox, "Код:", Код);
+                            
+                // Коментар
+                CreateFieldView(vBox, "Коментар:", Коментар, 500, 200);
+                            
+                // КодВСпеціальнійТаблиці
+        }
+
+        protected override void CreatePack2(Box vBox)
+        {
+            
+                // Таблична частина "Контакти" 
+                CreateTablePart(vBox, "Контакти:", Контакти);
+            
+        }
+
+        #region Присвоєння / зчитування значень
+
+        public override async void SetValue()
+        {
+            Назва.Text = Елемент.Назва;
+                            Код.Text = Елемент.Код;
+                            Коментар.Buffer.Text = Елемент.Коментар;
+                            //КодВСпеціальнійТаблиці = Елемент.КодВСпеціальнійТаблиці;
+                    
+                // Таблична частина "Контакти"
+                Контакти.ЕлементВласник = Елемент;
+                await Контакти.LoadRecords();
+            
+        }
+
+        protected override void GetValue()
+        {
+            Елемент.Назва = Назва.Text;
+                            Елемент.Код = Код.Text;
+                            Елемент.Коментар = Коментар.Buffer.Text;
+                            //Елемент.КодВСпеціальнійТаблиці = КодВСпеціальнійТаблиці;
+                    
+        }
+
+        #endregion
+
+        protected override async ValueTask<bool> Save()
+        {
+            bool isSaved = false;
+            try
+            {
+                if (await Елемент.Save())
+                {
+                    await Контакти.SaveRecords(); // Таблична частина "Контакти"
+                    
+                    isSaved = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ФункціїДляПовідомлень.ДодатиПовідомлення(Елемент.GetBasis(), Caption, ex);
+            }
+            return isSaved;
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <ElementFields>
             <Field>
-              <Name>Код</Name>
-              <Caption>Код</Caption>
-              <Size>100</Size>
+              <Name>Назва</Name>
+              <Caption>Назва</Caption>
+              <Size>0</Size>
               <Height>0</Height>
               <SortNum>1</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
             </Field>
             <Field>
-              <Name>Назва</Name>
-              <Caption>Назва</Caption>
+              <Name>Код</Name>
+              <Caption>Код</Caption>
               <Size>0</Size>
               <Height>0</Height>
               <SortNum>2</SortNum>
@@ -515,6 +735,14 @@
               <Type>string</Type>
               <Multiline>1</Multiline>
             </Field>
+            <Field>
+              <Name>КодВСпеціальнійТаблиці</Name>
+              <Caption>КодВСпеціальнійТаблиці</Caption>
+              <Size>0</Size>
+              <Height>0</Height>
+              <SortNum>4</SortNum>
+              <Type>any_pointer</Type>
+            </Field>
           </ElementFields>
           <ElementTableParts>
             <TablePart>
@@ -522,31 +750,232 @@
               <Caption>Контакти</Caption>
               <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>1</SortNum>
             </TablePart>
           </ElementTableParts>
         </Form>
         <Form Modified="0">
-          <Name>Список</Name>
-          <Desc>Список</Desc>
-          <Type>List</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>Тригери</Name>
+          <Desc>Тригери</Desc>
+          <Type>Triggers</Type>
+          <GeneratedCode><![CDATA[
+
+/*
+        Користувачі_Triggers.cs
+        Тригери
+*/
+
+using GeneratedCode.Константи;
+using AccountingSoftware;
+
+namespace GeneratedCode.Довідники
+{
+    static class Користувачі_Triggers
+    {
+        public static async ValueTask New(Користувачі_Objest ДовідникОбєкт)
+        {
+            ДовідникОбєкт.Код = (++НумераціяДовідників.Користувачі_Const).ToString("D6");
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask Copying(Користувачі_Objest ДовідникОбєкт, Користувачі_Objest Основа)
+        {
+            ДовідникОбєкт.Назва += " - Копія";
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask BeforeSave(Користувачі_Objest ДовідникОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask AfterSave(Користувачі_Objest ДовідникОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask SetDeletionLabel(Користувачі_Objest ДовідникОбєкт, bool label)
+        {
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask BeforeDelete(Користувачі_Objest ДовідникОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
-          <TabularList>Записи</TabularList>
         </Form>
         <Form Modified="0">
-          <Name>Швидкий вибір</Name>
-          <Desc>Швидкий вибір</Desc>
-          <Type>ListSmallSelect</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>Функції</Name>
+          <Desc>Функції</Desc>
+          <Type>Function</Type>
+          <GeneratedCode><![CDATA[
+/*
+        Користувачі_Функції.cs
+        Функції
+*/
+
+using InterfaceGtk;
+using AccountingSoftware;
+using GeneratedCode.Довідники;
+
+namespace NewProject
+{
+    static class Користувачі_Функції
+    {
+        public static List<Where> Відбори(string searchText)
+        {
+            return
+            [
+                
+                //Коментар
+                new Where(Користувачі_Const.Коментар, Comparison.LIKE, searchText) { FuncToField = "LOWER" },
+                        
+            ];
+        }
+
+        public static async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null, 
+            Action<UnigueID?>? сallBack_LoadRecords = null, 
+            Action<UnigueID>? сallBack_OnSelectPointer = null)
+        {
+            Користувачі_Елемент page = new Користувачі_Елемент
+            {
+                IsNew = IsNew,
+                CallBack_LoadRecords = сallBack_LoadRecords,
+                CallBack_OnSelectPointer = сallBack_OnSelectPointer
+            };
+
+            if (IsNew)
+            {
+                await page.Елемент.New();
+                
+            }
+            else if (unigueID == null || !await page.Елемент.Read(unigueID))
+            {
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+                return;
+            }
+
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, page.Caption, () => page);
+            await NotebookFunction.AddLockObjectFunc(Program.GeneralNotebook, page.Name, page.Елемент);
+            await page.LockInfo(page.Елемент);
+            page.SetValue();
+        }
+
+        public static async ValueTask SetDeletionLabel(UnigueID unigueID)
+        {
+            Користувачі_Objest Обєкт = new Користувачі_Objest();
+            if (await Обєкт.Read(unigueID))
+                await Обєкт.SetDeletionLabel(!Обєкт.DeletionLabel);
+            else
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+        }
+
+        public static async ValueTask<UnigueID?> Copy(UnigueID unigueID)
+        {
+            Користувачі_Objest Обєкт = new Користувачі_Objest();
+            if (await Обєкт.Read(unigueID))
+            {
+                Користувачі_Objest Новий = await Обєкт.Copy(true);
+                await Новий.Save();
+                
+                    await Новий.Контакти_TablePart.Save(false); // Таблична частина "Контакти"
+                
+                return Новий.UnigueID;
+            }
+            else
+            {
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+                return null;
+            }
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
-          <TabularList>Записи</TabularList>
         </Form>
         <Form Modified="0">
           <Name>PointerControl</Name>
           <Desc>PointerControl</Desc>
           <Type>PointerControl</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <GeneratedCode><![CDATA[
+/*     
+        Користувачі_PointerControl.cs
+        PointerControl
+*/
+
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+using GeneratedCode.Довідники;
+
+namespace NewProject
+{
+    public class Користувачі_PointerControl : PointerControl
+    {
+        event EventHandler<Користувачі_Pointer> PointerChanged;
+
+        public Користувачі_PointerControl()
+        {
+            pointer = new Користувачі_Pointer();
+            WidthPresentation = 300;
+            Caption = $"{Користувачі_Const.FULLNAME}:";
+            PointerChanged += async (object? _, Користувачі_Pointer pointer) =>
+            {
+                Presentation = pointer != null ? await pointer.GetPresentation() : "";
+            };
+        }
+
+        Користувачі_Pointer pointer;
+        public Користувачі_Pointer Pointer
+        {
+            get
+            {
+                return pointer;
+            }
+            set
+            {
+                pointer = value;
+                PointerChanged?.Invoke(null, pointer);
+            }
+        }
+
+        
+
+        protected override async void OpenSelect(object? sender, EventArgs args)
+        {
+            Popover popover = new Popover((Button)sender!) { Position = PositionType.Bottom, BorderWidth = 2 };
+            BeforeClickOpenFunc?.Invoke();
+            Користувачі_ШвидкийВибір page = new Користувачі_ШвидкийВибір() 
+            { 
+                PopoverParent = popover, 
+                DirectoryPointerItem = Pointer.UnigueID,
+                OpenFolder = OpenFolder,
+                CallBack_OnSelectPointer = (UnigueID selectPointer) =>
+                {
+                    Pointer = new Користувачі_Pointer(selectPointer);
+                    AfterSelectFunc?.Invoke();
+                }
+            };
+            
+            popover.Add(page);
+            popover.ShowAll();
+
+            await page.SetValue();
+        }
+
+        protected override void OnClear(object? sender, EventArgs args)
+        {
+            Pointer = new Користувачі_Pointer();
+            AfterSelectFunc?.Invoke();
+            AfterClearFunc?.Invoke();
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
         </Form>
       </Forms>
@@ -787,17 +1216,356 @@
       </SpendFunctions>
       <Forms>
         <Form Modified="0">
-          <Name>Функції</Name>
-          <Desc>Функції</Desc>
-          <Type>Function</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>PointerControl</Name>
+          <Desc>PointerControl</Desc>
+          <Type>PointerControl</Type>
+          <GeneratedCode><![CDATA[
+
+/*     
+        НовийДок_PointerControl.cs
+        PointerControl
+*/
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+using GeneratedCode.Документи;
+
+namespace NewProject
+{
+    public class НовийДок_PointerControl : PointerControl
+    {
+        event EventHandler<НовийДок_Pointer> PointerChanged;
+
+        public НовийДок_PointerControl()
+        {
+            pointer = new НовийДок_Pointer();
+            WidthPresentation = 300;
+            Caption = $"{НовийДок_Const.FULLNAME}:";
+            PointerChanged += async (object? _, НовийДок_Pointer pointer) =>
+            {
+                Presentation = pointer != null ? await pointer.GetPresentation() : "";
+            };
+        }
+
+        НовийДок_Pointer pointer;
+        public НовийДок_Pointer Pointer
+        {
+            get
+            {
+                return pointer;
+            }
+            set
+            {
+                pointer = value;
+                PointerChanged?.Invoke(null, pointer);
+            }
+        }
+
+        protected override void OpenSelect(object? sender, EventArgs args)
+        {
+            BeforeClickOpenFunc?.Invoke();
+            НовийДок page = new НовийДок
+            {
+                DocumentPointerItem = Pointer.UnigueID,
+                CallBack_OnSelectPointer = (UnigueID selectPointer) =>
+                {
+                    Pointer = new НовийДок_Pointer(selectPointer);
+                    AfterSelectFunc?.Invoke();
+                }
+            };
+
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, $"Вибір - {НовийДок_Const.FULLNAME}", () => page);
+            page.SetValue();
+        }
+
+        protected override void OnClear(object? sender, EventArgs args)
+        {
+            Pointer = new НовийДок_Pointer();
+            AfterSelectFunc?.Invoke();
+            AfterClearFunc?.Invoke();
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
+        </Form>
+        <Form Modified="0">
+          <Name>Список</Name>
+          <Desc>Список</Desc>
+          <Type>List</Type>
+          <GeneratedCode><![CDATA[
+
+/*     
+        НовийДок.cs
+        Список
+*/
+
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+
+using GeneratedCode;
+using ТабличніСписки = GeneratedCode.Документи.ТабличніСписки;
+using GeneratedCode.Документи;
+
+namespace NewProject
+{
+    public class НовийДок : ДокументЖурнал
+    {
+        public НовийДок() : base()
+        {
+            ТабличніСписки.НовийДок_Записи.AddColumns(TreeViewGrid);
+        }
+
+        #region Override
+
+        public override async ValueTask LoadRecords()
+        {
+            ТабличніСписки.НовийДок_Записи.SelectPointerItem = SelectPointerItem;
+            ТабличніСписки.НовийДок_Записи.DocumentPointerItem = DocumentPointerItem;
+
+            ТабличніСписки.НовийДок_Записи.ДодатиВідбірПоПеріоду(TreeViewGrid, Період.Period, Період.DateStart, Період.DateStop);
+
+            await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid);
+        }
+
+        public override async ValueTask LoadRecords_OnSearch(string searchText)
+        {
+            ТабличніСписки.НовийДок_Записи.ОчиститиВідбір(TreeViewGrid);
+            
+            //Відбори
+            ТабличніСписки.НовийДок_Записи.ДодатиВідбір(TreeViewGrid, НовийДок_Функції.Відбори(searchText));
+
+            await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid);
+        }
+
+        protected override Widget? FilterRecords(Box hBox)
+        {
+            return ТабличніСписки.НовийДок_Записи.CreateFilter(TreeViewGrid);
+        }
+
+        protected override async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null)
+        {
+            await НовийДок_Функції.OpenPageElement(IsNew, unigueID, CallBack_LoadRecords);
+        }
+
+        protected override async ValueTask SetDeletionLabel(UnigueID unigueID)
+        {
+            await НовийДок_Функції.SetDeletionLabel(unigueID);
+        }
+
+        protected override async ValueTask<UnigueID?> Copy(UnigueID unigueID)
+        {
+            return await НовийДок_Функції.Copy(unigueID);
+        }
+
+        const string КлючНалаштуванняКористувача = "Документи.НовийДок";
+
+        protected override async ValueTask BeforeSetValue()
+        {
+            await ФункціїНалаштуванняКористувача.ОтриматиПеріодДляЖурналу(КлючНалаштуванняКористувача + KeyForSetting, Період);
+            NotebookFunction.AddChangeFunc(Program.GeneralNotebook, Name, LoadRecords, НовийДок_Const.POINTER);
+        }
+
+        protected override async void PeriodChanged()
+        {
+            ФункціїНалаштуванняКористувача.ЗаписатиПеріодДляЖурналу(КлючНалаштуванняКористувача + KeyForSetting, Період.Period.ToString(), Період.DateStart, Період.DateStop);
+            await LoadRecords();
+        }
+
+        protected override async ValueTask SpendTheDocument(UnigueID unigueID, bool spendDoc)
+        {
+            НовийДок_Objest? Обєкт = await new НовийДок_Pointer(unigueID).GetDocumentObject(true);
+            if (Обєкт == null) return;
+
+            if (spendDoc)
+            {
+                if (!await Обєкт.SpendTheDocument(Обєкт.ДатаДок))
+                    ФункціїДляПовідомлень.ПоказатиПовідомлення(Обєкт.UnigueID);
+            }
+            else
+                await Обєкт.ClearSpendTheDocument();
+        }
+
+        protected override void ReportSpendTheDocument(UnigueID unigueID)
+        {
+            СпільніФорми_РухДокументуПоРегістрах.СформуватиЗвіт(new НовийДок_Pointer(unigueID));
+        }
+        
+        protected override bool IsExportXML() { return true; } //Дозволити експорт документу
+        protected override async ValueTask ExportXML(UnigueID unigueID, string pathToFolder)
+        {
+            НовийДок_Pointer Вказівник = new НовийДок_Pointer(unigueID);
+            await Вказівник.GetPresentation();
+            string path = System.IO.Path.Combine(pathToFolder, $"{Вказівник.Назва}.xml");
+
+            await НовийДок_Export.ToXmlFile(Вказівник, path);
+            ФункціїДляПовідомлень.ДодатиІнформаційнеПовідомлення(Вказівник.GetBasis(), Вказівник.Назва, $"Вигружено у файл: {path}");
+        }
+
+        /*
+        protected override async ValueTask PrintingDoc(UnigueID unigueID)
+        {
+            await НовийДок_Друк.PDF(unigueID);
+        }
+        */
+
+        #endregion
+    }
+}
+    ]]></GeneratedCode>
+          <NotSaveToFile>0</NotSaveToFile>
+          <TabularList>Записи</TabularList>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
           <Desc>Елемент</Desc>
           <Type>Element</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <GeneratedCode><![CDATA[
+/*
+        НовийДок_Елемент.cs
+        Елемент
+*/
+
+using Gtk;
+using InterfaceGtk;
+using AccountingSoftware;
+
+using GeneratedCode;
+using GeneratedCode.Константи;
+using GeneratedCode.Довідники;
+using GeneratedCode.Документи;
+using GeneratedCode.Перелічення;
+
+namespace NewProject
+{
+    class НовийДок_Елемент : ДокументЕлемент
+    {
+        public НовийДок_Objest Елемент { get; init; } = new НовийДок_Objest();
+
+        #region Fields
+        Entry НомерДок = new Entry() { WidthRequest = 500 };
+                        DateTimeControl ДатаДок = new DateTimeControl();
+                Entry Коментар = new Entry() { WidthRequest = 500 };
+                        
+        #endregion
+
+        #region TabularParts
+        
+            // Таблична частина "Накопичення" 
+            НовийДок_ТабличнаЧастина_Накопичення Накопичення = new НовийДок_ТабличнаЧастина_Накопичення() { WidthRequest = 500, HeightRequest = 300 };
+        
+        #endregion
+
+        public НовийДок_Елемент()
+        {
+            Елемент.UnigueIDChanged += UnigueIDChanged;
+            Елемент.CaptionChanged += CaptionChanged;
+
+            CreateDocName(НовийДок_Const.FULLNAME, НомерДок, ДатаДок);
+            
+            CreateField(HBoxComment, "Коментар:", Коментар);
+            
+                // Таблична частина "Накопичення" 
+                NotebookTablePart.InsertPage(Накопичення, new Label("Накопичення"), 0);
+                
+                NotebookTablePart.CurrentPage = 0;
+            
+        }
+
+        protected override void CreateContainer1(Box vBox)
+        {
+            
+        }
+
+        protected override void CreateContainer2(Box vBox)
+        {
+           
+        }
+
+        protected override void CreateContainer3(Box vBox)
+        {
+            
+        }
+
+        protected override void CreateContainer4(Box vBox)
+        {
+            
+        }
+
+        #region Присвоєння / зчитування значень
+
+        public override async void SetValue()
+        {
+            НомерДок.Text = Елемент.НомерДок;
+                            ДатаДок.Value = Елемент.ДатаДок;
+                    Коментар.Text = Елемент.Коментар;
+                            
+                // Таблична частина "Накопичення" 
+                Накопичення.ЕлементВласник = Елемент; 
+                await Накопичення.LoadRecords();
+            
+        }
+
+        protected override void GetValue()
+        {
+            Елемент.НомерДок = НомерДок.Text;
+                            Елемент.ДатаДок = ДатаДок.Value;
+                    Елемент.Коментар = Коментар.Text;
+                            
+        }
+
+        
+        /*string КлючовіСловаДляПошуку()
+        {
+            return "\n"
+             + Накопичення.КлючовіСловаДляПошуку();
+        }*/
+        
+
+        #endregion
+        
+        protected override async ValueTask<bool> Save()
+        {
+            bool isSaved = false;
+            try
+            {
+                if(await Елемент.Save())
+                {
+                    await Накопичення.SaveRecords(); // Таблична частина "Накопичення"
+                    
+                    isSaved = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ФункціїДляПовідомлень.ДодатиПовідомлення(Елемент.GetBasis(), Caption, ex);
+            }
+            return isSaved;
+        }
+
+        protected override async ValueTask<bool> SpendTheDocument(bool spendDoc)
+        {
+            if (spendDoc)
+            {
+                bool isSpend = await Елемент.SpendTheDocument(Елемент.ДатаДок);
+                if (!isSpend) ФункціїДляПовідомлень.ПоказатиПовідомлення(Елемент.UnigueID);
+                return isSpend;
+            }
+            else
+            {
+                await Елемент.ClearSpendTheDocument();
+                return true;
+            }
+        }
+
+        protected override void ReportSpendTheDocument(UnigueID unigueID)
+        {
+            СпільніФорми_РухДокументуПоРегістрах.СформуватиЗвіт(new НовийДок_Pointer(unigueID));
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <ElementFields>
             <Field>
@@ -805,25 +1573,25 @@
               <Caption>Назва</Caption>
               <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>1</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
             </Field>
             <Field>
               <Name>НомерДок</Name>
-              <Caption>Номер</Caption>
-              <Size>100</Size>
+              <Caption>НомерДок</Caption>
+              <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>2</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
             </Field>
             <Field>
               <Name>ДатаДок</Name>
-              <Caption>Дата</Caption>
-              <Size>100</Size>
+              <Caption>ДатаДок</Caption>
+              <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>3</SortNum>
               <Type>datetime</Type>
             </Field>
             <Field>
@@ -831,7 +1599,7 @@
               <Caption>Коментар</Caption>
               <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>4</SortNum>
               <Type>string</Type>
               <Multiline>0</Multiline>
             </Field>
@@ -842,23 +1610,196 @@
               <Caption>Накопичення</Caption>
               <Size>0</Size>
               <Height>0</Height>
-              <SortNum>100</SortNum>
+              <SortNum>1</SortNum>
             </TablePart>
           </ElementTableParts>
         </Form>
         <Form Modified="0">
-          <Name>Список</Name>
-          <Desc>Список</Desc>
-          <Type>List</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>Функції</Name>
+          <Desc>Функції</Desc>
+          <Type>Function</Type>
+          <GeneratedCode><![CDATA[
+
+/*
+        НовийДок_Функції.cs
+        Функції
+*/
+
+using InterfaceGtk;
+using AccountingSoftware;
+using GeneratedCode.Документи;
+
+namespace NewProject
+{
+    static class НовийДок_Функції
+    {
+        public static List<Where> Відбори(string searchText)
+        {
+            return
+            [
+                
+                //Назва
+                new Where(НовийДок_Const.Назва, Comparison.LIKE, searchText) { FuncToField = "LOWER" },
+                        
+            ];
+        }
+
+        public static async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null, 
+            Action<UnigueID?>? сallBack_LoadRecords = null)
+        {
+            НовийДок_Елемент page = new НовийДок_Елемент
+            {
+                IsNew = IsNew,
+                CallBack_LoadRecords = сallBack_LoadRecords
+            };
+
+            if (IsNew)
+                await page.Елемент.New();
+            else if (unigueID == null || !await page.Елемент.Read(unigueID))
+            {
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+                return;
+            }
+
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, page.Caption, () => page);
+            await NotebookFunction.AddLockObjectFunc(Program.GeneralNotebook, page.Name, page.Елемент);
+            await page.LockInfo(page.Елемент);
+            page.SetValue();
+        }
+
+        public static async ValueTask SetDeletionLabel(UnigueID unigueID)
+        {
+            НовийДок_Objest Обєкт = new НовийДок_Objest();
+            if (await Обєкт.Read(unigueID))
+                await Обєкт.SetDeletionLabel(!Обєкт.DeletionLabel);
+            else
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+        }
+
+        public static async ValueTask<UnigueID?> Copy(UnigueID unigueID)
+        {
+            НовийДок_Objest Обєкт = new НовийДок_Objest();
+            if (await Обєкт.Read(unigueID))
+            {
+                НовийДок_Objest Новий = await Обєкт.Copy(true);
+                await Новий.Save();
+                
+                    await Новий.Накопичення_TablePart.Save(false); // Таблична частина "Накопичення"
+                
+                return Новий.UnigueID;
+            }
+            else
+            {
+                Message.Error(Program.GeneralForm, "Не вдалось прочитати!");
+                return null;
+            }
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
-          <TabularList>Записи</TabularList>
         </Form>
         <Form Modified="0">
-          <Name>PointerControl</Name>
-          <Desc>PointerControl</Desc>
-          <Type>PointerControl</Type>
-          <GeneratedCode><![CDATA[]]></GeneratedCode>
+          <Name>Проведення документу</Name>
+          <Desc>Проведення документу</Desc>
+          <Type>SpendTheDocument</Type>
+          <GeneratedCode><![CDATA[
+
+/*
+        НовийДок_SpendTheDocument.cs
+        Модуль проведення документу
+*/
+
+using AccountingSoftware;
+using StorageAndTrade;
+
+using GeneratedCode.Довідники;
+using GeneratedCode.РегістриНакопичення;
+using GeneratedCode.РегістриВідомостей;
+
+namespace GeneratedCode.Документи
+{
+    static class НовийДок_SpendTheDocument
+    {
+        public static async ValueTask<bool> Spend(НовийДок_Objest ДокументОбєкт)
+        {
+            try
+            {
+                // Проведення документу
+                // ...
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await СпільніФункції.ДокументНеПроводиться(ДокументОбєкт, ДокументОбєкт.Назва, ex.Message);
+                return false;
+            }
+        }
+
+        public static async ValueTask ClearSpend(НовийДок_Objest ДокументОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+    }
+}
+    ]]></GeneratedCode>
+          <NotSaveToFile>0</NotSaveToFile>
+        </Form>
+        <Form Modified="0">
+          <Name>Тригери</Name>
+          <Desc>Тригери</Desc>
+          <Type>Triggers</Type>
+          <GeneratedCode><![CDATA[
+
+/*
+        НовийДок_Triggers.cs
+        Тригери
+*/
+
+using GeneratedCode.Константи;
+using AccountingSoftware;
+
+namespace GeneratedCode.Документи
+{
+    static class НовийДок_Triggers
+    {
+        public static async ValueTask New(НовийДок_Objest ДокументОбєкт)
+        {
+            ДокументОбєкт.НомерДок = (++НумераціяДокументів.НовийДок_Const).ToString("D8");
+            ДокументОбєкт.ДатаДок = DateTime.Now;
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask Copying(НовийДок_Objest ДокументОбєкт, НовийДок_Objest Основа)
+        {
+            ДокументОбєкт.Назва += " - Копія";
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask BeforeSave(НовийДок_Objest ДокументОбєкт)
+        {
+            ДокументОбєкт.Назва = $"{НовийДок_Const.FULLNAME} №{ДокументОбєкт.НомерДок} від {ДокументОбєкт.ДатаДок.ToString("dd.MM.yyyy")}";
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask AfterSave(НовийДок_Objest ДокументОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask SetDeletionLabel(НовийДок_Objest ДокументОбєкт, bool label)
+        {
+            await ValueTask.FromResult(true);
+        }
+
+        public static async ValueTask BeforeDelete(НовийДок_Objest ДокументОбєкт)
+        {
+            await ValueTask.FromResult(true);
+        }
+    }
+}
+    ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
         </Form>
       </Forms>

@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 21.03.2025 16:12:43
+ * Дата конфігурації: 25.03.2025 10:38:26
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -15,7 +15,6 @@ using Gtk;
 using InterfaceGtk;
 using AccountingSoftware;
 using GeneratedCode.Перелічення;
-using NewProject;
 
 namespace GeneratedCode.Довідники.ТабличніСписки
 {
