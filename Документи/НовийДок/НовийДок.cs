@@ -26,12 +26,8 @@ namespace NewProject
 
         public override async ValueTask LoadRecords()
         {
-            ТабличніСписки.НовийДок_Записи.SelectPointerItem = SelectPointerItem;
-            ТабличніСписки.НовийДок_Записи.DocumentPointerItem = DocumentPointerItem;
-
             ТабличніСписки.НовийДок_Записи.ДодатиВідбірПоПеріоду(TreeViewGrid, Період.Period, Період.DateStart, Період.DateStop);
-
-            await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid);
+            await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid, SelectPointerItem, DocumentPointerItem);
         }
 
         public override async ValueTask LoadRecords_OnSearch(string searchText)

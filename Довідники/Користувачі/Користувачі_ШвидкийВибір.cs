@@ -21,12 +21,8 @@ namespace NewProject
 
         public override async ValueTask LoadRecords()
         {
-            ТабличніСписки.Користувачі_Записи.SelectPointerItem = null;
-            ТабличніСписки.Користувачі_Записи.DirectoryPointerItem = DirectoryPointerItem;
-
             ТабличніСписки.Користувачі_Записи.ОчиститиВідбір(TreeViewGrid);
-
-            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder);
+            await ТабличніСписки.Користувачі_Записи.LoadRecords(TreeViewGrid, OpenFolder, SelectPointerItem, DirectoryPointerItem);
         }
 
         public override async ValueTask LoadRecords_OnSearch(string searchText)

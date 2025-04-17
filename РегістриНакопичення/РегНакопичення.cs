@@ -11,7 +11,7 @@ using InterfaceGtk;
 using AccountingSoftware;
 using ТабличніСписки = GeneratedCode.РегістриНакопичення.ТабличніСписки;
 
-namespace NewProject
+namespace NewProject.РегістриНакопичення
 {
     public class РегНакопичення : РегістриНакопиченняЖурнал
     {
@@ -24,10 +24,8 @@ namespace NewProject
 
         public override async ValueTask LoadRecords()
         {
-            ТабличніСписки.РегНакопичення_Записи.SelectPointerItem = SelectPointerItem;
             ТабличніСписки.РегНакопичення_Записи.ДодатиВідбірПоПеріоду(TreeViewGrid, Період.Period, Період.DateStart, Період.DateStop);
-
-            await ТабличніСписки.РегНакопичення_Записи.LoadRecords(TreeViewGrid);
+            await ТабличніСписки.РегНакопичення_Записи.LoadRecords(TreeViewGrid, SelectPointerItem);
         }
 
         public override async ValueTask LoadRecords_OnSearch(string searchText)

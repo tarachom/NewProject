@@ -43,8 +43,8 @@ namespace NewProject
 
                             ТабличніСписки.РегНакопичення_Записи.AddColumns(treeView, ["period", "owner"]);
                             ТабличніСписки.РегНакопичення_Записи.ДодатиВідбірПоДокументу(treeView, ДокументВказівник.UnigueID.UGuid);
-                            await ТабличніСписки.РегНакопичення_Записи.LoadRecords(treeView, false, false);
-                            
+                            await ТабличніСписки.РегНакопичення_Записи.LoadRecords(treeView, null, false, false);
+
                             break;
                         }
                     default:

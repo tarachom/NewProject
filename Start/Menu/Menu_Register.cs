@@ -8,6 +8,8 @@ using Gtk;
 using InterfaceGtk;
 using GeneratedCode.РегістриНакопичення;
 
+using NewProject.РегістриНакопичення;
+
 namespace NewProject
 {
     class Menu_Register : Форма

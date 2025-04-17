@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>24.03.2025 18:33:48</DateTimeSave>
+  <DateTimeSave>17.04.2025 18:19:29</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -504,6 +504,7 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
+          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Список</Name>
@@ -589,6 +590,7 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
+          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
@@ -1211,8 +1213,8 @@ namespace NewProject
         <BeforeDelete Action="0">BeforeDelete</BeforeDelete>
       </TriggerFunctions>
       <SpendFunctions>
-        <Spend>Spend</Spend>
-        <ClearSpend>ClearSpend</ClearSpend>
+        <Spend Action="1">Spend</Spend>
+        <ClearSpend Action="0">ClearSpend</ClearSpend>
       </SpendFunctions>
       <Forms>
         <Form Modified="0">
@@ -1416,6 +1418,7 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
+          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
@@ -2358,6 +2361,7 @@ HAVING
           <GeneratedCode><![CDATA[]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
+          <UsePages>0</UsePages>
         </Form>
       </Forms>
     </RegisterAccumulation>
