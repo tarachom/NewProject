@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 17.04.2025 18:19:29
+ * Дата конфігурації: 19.04.2025 11:44:08
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -120,14 +120,14 @@ namespace GeneratedCode.Довідники.ТабличніСписки
             string? uidSelect = unigueIDSelect?.ToString();
             while (Користувачі_Select.MoveNext())
             {
-                Довідники.Користувачі_Pointer? cur = Користувачі_Select.Current;
+                Довідники.Користувачі_Pointer? current = Користувачі_Select.Current;
                 
-                if (cur != null)
+                if (current != null)
                 {
-                    Dictionary<string, object> Fields = cur.Fields!;
+                    Dictionary<string, object> Fields = current.Fields;
                     Користувачі_Записи Record = new Користувачі_Записи
                     {
-                        ID = cur.UnigueID.ToString(),
+                        ID = current.UnigueID.ToString(),
                         DeletionLabel = (bool)Fields["deletion_label"], /*Помітка на видалення*/
                         Код = Fields[Користувачі_Const.Код].ToString() ?? "",
                             Назва = Fields[Користувачі_Const.Назва].ToString() ?? "",
@@ -266,14 +266,14 @@ namespace GeneratedCode.Документи.ТабличніСписки
             string? uidSelect = unigueIDSelect?.ToString();
             while (НовийДок_Select.MoveNext())
             {
-                Документи.НовийДок_Pointer? cur = НовийДок_Select.Current;
+                Документи.НовийДок_Pointer? current = НовийДок_Select.Current;
 
-                if (cur != null)
+                if (current != null)
                 {
-                    Dictionary<string, object> Fields = cur.Fields!;
+                    Dictionary<string, object> Fields = current.Fields;
                     НовийДок_Записи Record = new НовийДок_Записи
                     {
-                        ID = cur.UnigueID.ToString(),
+                        ID = current.UnigueID.ToString(),
                         Spend = (bool)Fields["spend"], /*Проведений документ*/
                         DeletionLabel = (bool)Fields["deletion_label"], /*Помітка на видалення*/
                         Назва = Fields[НовийДок_Const.Назва].ToString() ?? "",
@@ -419,17 +419,17 @@ namespace GeneratedCode.Документи.ТабличніСписки
                       }
                   }
                   
-                  query.FieldAndAlias.Add(new NameValue<string>("'НовийДок'", "type"));
+                  query.FieldAndAlias.Add(new ValueName<string>("'НовийДок'", "type"));
                   query.Field.Add("deletion_label");
                   query.Field.Add("spend");
                   
-                              query.FieldAndAlias.Add(new NameValue<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.Назва, "Назва"));
+                              query.FieldAndAlias.Add(new ValueName<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.Назва, "Назва"));
                             
-                              query.FieldAndAlias.Add(new NameValue<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.ДатаДок, "Дата"));
+                              query.FieldAndAlias.Add(new ValueName<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.ДатаДок, "Дата"));
                             
-                              query.FieldAndAlias.Add(new NameValue<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.НомерДок, "Номер"));
+                              query.FieldAndAlias.Add(new ValueName<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.НомерДок, "Номер"));
                             
-                              query.FieldAndAlias.Add(new NameValue<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.Коментар, "Коментар"));
+                              query.FieldAndAlias.Add(new ValueName<string>(Документи.НовийДок_Const.TABLE + "." + Документи.НовийДок_Const.Коментар, "Коментар"));
                             
                   allQuery.Add(query.Construct());
               }

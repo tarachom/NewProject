@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 17.04.2025 18:19:29
+ * Дата конфігурації: 19.04.2025 11:44:08
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -453,7 +453,7 @@ namespace GeneratedCode.Довідники
             string[] presentationField = new string [Користувачі_Const.PRESENTATION_FIELDS.Length];
             for (int i = 0; i < presentationField.Length; i++) presentationField[i] = $"{joinTableAlias}.{Користувачі_Const.PRESENTATION_FIELDS[i]}";
             querySelect.Joins.Add(new Join(Користувачі_Const.TABLE, joinField, parentTable, joinTableAlias));
-            querySelect.FieldAndAlias.Add(new NameValue<string>(presentationField.Length switch { 1 => presentationField[0], >1 => $"concat_ws (', ', " + string.Join(", ", presentationField) + ")", _ => "'#'" }, fieldAlias));
+            querySelect.FieldAndAlias.Add(new ValueName<string>(presentationField.Length switch { 1 => presentationField[0], >1 => $"concat_ws (', ', " + string.Join(", ", presentationField) + ")", _ => "'#'" }, fieldAlias));
         }
 
         public async ValueTask<bool?> GetDeletionLabel()
@@ -694,13 +694,13 @@ namespace GeneratedCode.Перелічення
 
         public static List<NameValue<ТипиКонтактноїІнформації>> ТипиКонтактноїІнформації_List()
         {
-            return new List<NameValue<ТипиКонтактноїІнформації>>() {
+            return [
             new NameValue<ТипиКонтактноїІнформації>("Адрес", ТипиКонтактноїІнформації.Адрес),
             new NameValue<ТипиКонтактноїІнформації>("Телефон", ТипиКонтактноїІнформації.Телефон),
             new NameValue<ТипиКонтактноїІнформації>("Електронна пошта", ТипиКонтактноїІнформації.ЕлектроннаПошта),
             new NameValue<ТипиКонтактноїІнформації>("Сайт", ТипиКонтактноїІнформації.Сайт),
             new NameValue<ТипиКонтактноїІнформації>("Інше", ТипиКонтактноїІнформації.Інше),
-            };
+            ];
         }
         #endregion
     
@@ -919,7 +919,7 @@ namespace GeneratedCode.Документи
             string[] presentationField = new string [НовийДок_Const.PRESENTATION_FIELDS.Length];
             for (int i = 0; i < presentationField.Length; i++) presentationField[i] = $"{joinTableAlias}.{НовийДок_Const.PRESENTATION_FIELDS[i]}";
             querySelect.Joins.Add(new Join(НовийДок_Const.TABLE, joinField, parentTable, joinTableAlias));
-            querySelect.FieldAndAlias.Add(new NameValue<string>(presentationField.Length switch { 1 => presentationField[0], >1 => $"concat_ws (', ', " + string.Join(", ", presentationField) + ")", _ => "'#'" }, fieldAlias));
+            querySelect.FieldAndAlias.Add(new ValueName<string>(presentationField.Length switch { 1 => presentationField[0], >1 => $"concat_ws (', ', " + string.Join(", ", presentationField) + ")", _ => "'#'" }, fieldAlias));
         }
 
         public async ValueTask<bool?> IsSpend()
@@ -1367,7 +1367,7 @@ namespace GeneratedCode.РегістриНакопичення
             if (docname_required)
             {
               string query_case = $"CASE WHEN join_doc_1.uid IS NOT NULL THEN join_doc_1.{Документи.НовийДок_Const.Назва} END";
-              QuerySelect.FieldAndAlias.Add(new NameValue<string>(query_case, "docname"));
+              QuerySelect.FieldAndAlias.Add(new ValueName<string>(query_case, "docname"));
 
               int i = 0;
               foreach (string table in РегНакопичення_Const.AllowDocumentSpendTable)
