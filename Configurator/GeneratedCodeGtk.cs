@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 19.04.2025 11:44:08
+ * Дата конфігурації: 22.04.2025 17:28:25
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -70,13 +70,9 @@ namespace GeneratedCode.Довідники.ТабличніСписки
             treeView.AppendColumn(new TreeViewColumn());
         }
 
-        public static ListBox CreateFilter(TreeView treeView, System.Action? funcPagesShow = null)
+        public static void CreateFilter(TreeView treeView, ListFilterControl filterControl)
         {
-            ListBox listBox = new() { SelectionMode = SelectionMode.None };
-            
-                  listBox.Add(new ListBoxRow() { new Label("Фільтри відсутні") });
-                
-            return listBox;
+          
         }
 
         public static async ValueTask LoadRecords(TreeView treeView, UnigueID? openFolder = null, 
@@ -218,13 +214,9 @@ namespace GeneratedCode.Документи.ТабличніСписки
             if (where != null) ДодатиВідбір(treeView, where);               
         }
 
-        public static ListBox CreateFilter(TreeView treeView, System.Action? funcPagesShow = null)
+        public static void CreateFilter(TreeView treeView, ListFilterControl filterControl)
         {
-            ListBox listBox = new() { SelectionMode = SelectionMode.None };
-            
-                  listBox.Add(new ListBoxRow() { new Label("Фільтри відсутні") });
-                
-            return listBox;
+          
         }
 
         public static async ValueTask LoadRecords(TreeView treeView, UnigueID? selectPointerItem = null, UnigueID? directoryPointerItem = null)

@@ -40,9 +40,14 @@ namespace NewProject
             await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid);
         }
 
-        protected override Widget? FilterRecords(Box hBox)
+        public async override ValueTask LoadRecords_OnFilter()
         {
-            return ТабличніСписки.НовийДок_Записи.CreateFilter(TreeViewGrid);
+            await ТабличніСписки.НовийДок_Записи.LoadRecords(TreeViewGrid);
+        }
+
+        protected override void FillFilterList(ListFilterControl filterControl)
+        {
+            ТабличніСписки.НовийДок_Записи.CreateFilter(TreeViewGrid, filterControl);
         }
 
         protected override async ValueTask OpenPageElement(bool IsNew, UnigueID? unigueID = null)
@@ -71,7 +76,7 @@ namespace NewProject
         protected override async void PeriodChanged()
         {
             ФункціїНалаштуванняКористувача.ЗаписатиПеріодДляЖурналу(КлючНалаштуванняКористувача + KeyForSetting, Період.Period.ToString(), Період.DateStart, Період.DateStop);
-            await LoadRecords();
+            await BeforeLoadRecords();
         }
 
         protected override async ValueTask SpendTheDocument(UnigueID unigueID, bool spendDoc)

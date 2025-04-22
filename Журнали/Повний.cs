@@ -62,7 +62,7 @@ namespace NewProject
         protected override async void PeriodChanged()
         {
             ФункціїНалаштуванняКористувача.ЗаписатиПеріодДляЖурналу(КлючНалаштуванняКористувача, Період.Period.ToString(), Період.DateStart, Період.DateStop);
-            await LoadRecords();
+            await BeforeLoadRecords();
         }
     }
 }
