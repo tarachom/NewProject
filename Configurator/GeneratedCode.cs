@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 22.04.2025 17:28:25
+ * Дата конфігурації: 24.04.2025 23:47:19
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -127,7 +127,10 @@ namespace GeneratedCode.Константи
         public class НалаштуванняКористувача_ПеріодиЖурналів_TablePart : ConstantsTablePart
         {
             public НалаштуванняКористувача_ПеріодиЖурналів_TablePart() : base(Config.Kernel, "tab_a80",
-                 ["col_a1", "col_a2", "col_a3", "col_a4", "col_a5", ]) { }
+                 ["col_a1", "col_a2", "col_a3", "col_a4", "col_a5", ]) 
+            { 
+              
+            }
             
             public const string TABLE = "tab_a80";
             
@@ -505,6 +508,7 @@ namespace GeneratedCode.Довідники
         {
             if (owner == null) throw new Exception("owner null");
             Owner = owner;
+            
         }
 
         public const string TABLE = "tab_a15";
@@ -526,10 +530,11 @@ namespace GeneratedCode.Довідники
         {
             QuerySelect.Clear();
 
-            if (orderFields!=null)
+            if (orderFields != null)
+            {
               foreach(string field in orderFields)
                 QuerySelect.Order.Add(field, SelectOrder.ASC);
-
+            }
             
         }
 
@@ -1028,6 +1033,7 @@ namespace GeneratedCode.Документи
         {
             if (owner == null) throw new Exception("owner null");
             Owner = owner;
+            
         }
 
         public const string TABLE = "tab_a03";
@@ -1043,10 +1049,11 @@ namespace GeneratedCode.Документи
         {
             QuerySelect.Clear();
 
-            if (orderFields!=null)
+            if (orderFields != null)
+            {
               foreach(string field in orderFields)
                 QuerySelect.Order.Add(field, SelectOrder.ASC);
-
+            }
             Довідники.Користувачі_Pointer.GetJoin(QuerySelect, Користувач, "tab_a03", "join_tab_1", "Користувач");
                 
         }
