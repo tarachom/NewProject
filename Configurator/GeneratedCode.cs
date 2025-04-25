@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 25.04.2025 00:53:48
+ * Дата конфігурації: 25.04.2025 17:36:48
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -140,6 +140,8 @@ namespace GeneratedCode.Константи
             public const string ДатаСтарт = "col_a4";
             public const string ДатаСтоп = "col_a5";
             public List<Record> Records { get; set; } = [];
+
+            public event EventHandler? Saved;
         
             public async ValueTask Read()
             {
@@ -189,12 +191,13 @@ namespace GeneratedCode.Константи
                 }
                 
                 await base.BaseCommitTransaction();
+                Saved?.Invoke(this, new EventArgs());
             }
 
             public async ValueTask Remove(Record record)
             {
                 await base.BaseRemove(record.UID);
-                Records.RemoveAll((Record item) => record.UID == item.UID);
+                Records.RemoveAll(item => record.UID == item.UID);
             }
 
             public async ValueTask RemoveAll(List<Record> records)
@@ -209,7 +212,7 @@ namespace GeneratedCode.Константи
                 }
                 await base.BaseCommitTransaction();
 
-                Records.RemoveAll((Record item) => removeList.Exists((Guid uid) => uid == item.UID));
+                Records.RemoveAll(item => removeList.Exists(uid => uid == item.UID));
             }
         
             public async ValueTask Delete()
@@ -525,6 +528,8 @@ namespace GeneratedCode.Довідники
         public Користувачі_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; } = [];
+
+        public event EventHandler? Saved;
         
         public void FillJoin(string[]? orderFields = null)
         {
@@ -569,6 +574,8 @@ namespace GeneratedCode.Довідники
         {
             if (!await base.IsExistOwner(Owner.UnigueID, "tab_a14"))
                 throw new Exception("Owner not exist");
+
+            
                 
             await base.BaseBeginTransaction();
                 
@@ -596,12 +603,15 @@ namespace GeneratedCode.Довідники
             }
                 
             await base.BaseCommitTransaction();
+
+            
+            Saved?.Invoke(this, new EventArgs());
         }
 
         public async ValueTask Remove(Record record)
         {
             await base.BaseRemove(record.UID, Owner.UnigueID);
-            Records.RemoveAll((Record item) => record.UID == item.UID);
+            Records.RemoveAll(item => record.UID == item.UID);
         }
 
         public async ValueTask RemoveAll(List<Record> records)
@@ -616,7 +626,7 @@ namespace GeneratedCode.Довідники
             }
             await base.BaseCommitTransaction();
 
-            Records.RemoveAll((Record item) => removeList.Exists((Guid uid) => uid == item.UID));
+            Records.RemoveAll(item => removeList.Exists(uid => uid == item.UID));
         }
         
         public async ValueTask Delete()
@@ -684,16 +694,17 @@ namespace GeneratedCode.Перелічення
             };
         }
 
-        public static ТипиКонтактноїІнформації? ТипиКонтактноїІнформації_FindByName(string name)
+        public static ТипиКонтактноїІнформації ТипиКонтактноїІнформації_FindByName(string name)
         {
             return name switch
             {
                 "Адрес" => ТипиКонтактноїІнформації.Адрес,
-                "Телефон" => ТипиКонтактноїІнформації.Телефон,
-                "Електронна пошта" => ТипиКонтактноїІнформації.ЕлектроннаПошта,
-                "Сайт" => ТипиКонтактноїІнформації.Сайт,
-                "Інше" => ТипиКонтактноїІнформації.Інше,
-                _ => null
+                  "Телефон" => ТипиКонтактноїІнформації.Телефон,
+                  "ЕлектроннаПошта" => ТипиКонтактноїІнформації.ЕлектроннаПошта,
+                  "Електронна пошта" => ТипиКонтактноїІнформації.ЕлектроннаПошта,
+                  "Сайт" => ТипиКонтактноїІнформації.Сайт,
+                  "Інше" => ТипиКонтактноїІнформації.Інше,
+                  _ => 0
             };
         }
 
@@ -1044,6 +1055,8 @@ namespace GeneratedCode.Документи
         public НовийДок_Objest Owner { get; private set; }
         
         public List<Record> Records { get; set; } = [];
+
+        public event EventHandler? Saved;
         
         public void FillJoin(string[]? orderFields = null)
         {
@@ -1091,6 +1104,8 @@ namespace GeneratedCode.Документи
             if (!await base.IsExistOwner(Owner.UnigueID, "tab_a01"))
                 throw new Exception("Owner not exist");
 
+            
+
             await base.BaseBeginTransaction();
                 
             if (clear_all_before_save)
@@ -1111,12 +1126,15 @@ namespace GeneratedCode.Документи
             }
             
             await base.BaseCommitTransaction();
+
+            
+            Saved?.Invoke(this, new EventArgs());
         }
 
         public async ValueTask Remove(Record record)
         {
             await base.BaseRemove(record.UID, Owner.UnigueID);
-            Records.RemoveAll((Record item) => record.UID == item.UID);
+            Records.RemoveAll(item => record.UID == item.UID);
         }
 
         public async ValueTask RemoveAll(List<Record> records)
@@ -1131,7 +1149,7 @@ namespace GeneratedCode.Документи
             }
             await base.BaseCommitTransaction();
 
-            Records.RemoveAll((Record item) => removeList.Exists((Guid uid) => uid == item.UID));
+            Records.RemoveAll(item => removeList.Exists(uid => uid == item.UID));
         }
 
         public async ValueTask Delete()

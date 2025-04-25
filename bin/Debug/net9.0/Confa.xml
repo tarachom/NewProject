@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>25.04.2025 00:53:48</DateTimeSave>
+  <DateTimeSave>25.04.2025 17:36:48</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -92,6 +92,10 @@
                 </Field>
               </Fields>
               <TabularLists />
+              <TriggerFunctions>
+                <BeforeSave Action="0">BeforeSave</BeforeSave>
+                <AfterSave Action="0">AfterSave</AfterSave>
+              </TriggerFunctions>
               <Forms />
             </TablePart>
           </TabularParts>
@@ -302,6 +306,10 @@
             </Field>
           </Fields>
           <TabularLists />
+          <TriggerFunctions>
+            <BeforeSave Action="0">BeforeSave</BeforeSave>
+            <AfterSave Action="0">AfterSave</AfterSave>
+          </TriggerFunctions>
           <Forms>
             <Form Modified="0">
               <Name>Таблична частина</Name>
@@ -1117,6 +1125,10 @@ namespace NewProject
             </Field>
           </Fields>
           <TabularLists />
+          <TriggerFunctions>
+            <BeforeSave Action="0">BeforeSave</BeforeSave>
+            <AfterSave Action="0">AfterSave</AfterSave>
+          </TriggerFunctions>
           <Forms>
             <Form Modified="0">
               <Name>Таблична частина</Name>
@@ -2059,6 +2071,10 @@ namespace GeneratedCode.Документи
             </Field>
           </Fields>
           <TabularLists />
+          <TriggerFunctions>
+            <BeforeSave Action="0">BeforeSave</BeforeSave>
+            <AfterSave Action="0">AfterSave</AfterSave>
+          </TriggerFunctions>
           <Forms />
         </TablePart>
         <TablePart>
@@ -2132,6 +2148,10 @@ namespace GeneratedCode.Документи
             </Field>
           </Fields>
           <TabularLists />
+          <TriggerFunctions>
+            <BeforeSave Action="0">BeforeSave</BeforeSave>
+            <AfterSave Action="0">AfterSave</AfterSave>
+          </TriggerFunctions>
           <Forms />
         </TablePart>
         <TablePart>
@@ -2178,6 +2198,10 @@ namespace GeneratedCode.Документи
             </Field>
           </Fields>
           <TabularLists />
+          <TriggerFunctions>
+            <BeforeSave Action="0">BeforeSave</BeforeSave>
+            <AfterSave Action="0">AfterSave</AfterSave>
+          </TriggerFunctions>
           <Forms />
         </TablePart>
       </TabularParts>
