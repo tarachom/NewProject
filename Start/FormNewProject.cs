@@ -51,6 +51,13 @@ namespace NewProject
             page.SetValue();
         }
 
+        protected override void Обробки(LinkButton lb)
+        {
+            PageWorking page = new PageWorking();
+            NotebookFunction.CreateNotebookPage(Program.GeneralNotebook, "Обробки", () => page);
+            page.SetValue();
+        }
+
         #region Override
 
         protected override void ButtonMessageClicked()
