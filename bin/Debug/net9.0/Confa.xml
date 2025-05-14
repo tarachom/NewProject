@@ -7,7 +7,7 @@
   <Author>
   </Author>
   <Desc>Проєкт для розробки нової конфігурації</Desc>
-  <DateTimeSave>25.04.2025 17:36:48</DateTimeSave>
+  <DateTimeSave>14.05.2025 20:19:06</DateTimeSave>
   <DictTSearch>simple</DictTSearch>
   <ConstantsBlocks>
     <ConstantsBlock>
@@ -21,8 +21,10 @@
           <TabularParts>
             <TablePart>
               <Name>ПеріодиЖурналів</Name>
+              <FullName>Періоди журналів</FullName>
               <Table>tab_a80</Table>
               <Desc>Використовується для збереження періоду для журналів та звітів</Desc>
+              <VersionsHistory>0</VersionsHistory>
               <PredefinedFields>
                 <PredefinedField>
                   <Name>uid</Name>
@@ -44,6 +46,7 @@
               <Fields>
                 <Field>
                   <Name>Користувач</Name>
+                  <FullName>Користувач</FullName>
                   <NameInTable>col_a1</NameInTable>
                   <Type>pointer</Type>
                   <Pointer>Довідники.Користувачі</Pointer>
@@ -54,6 +57,7 @@
                 </Field>
                 <Field>
                   <Name>Журнал</Name>
+                  <FullName>Журнал</FullName>
                   <NameInTable>col_a2</NameInTable>
                   <Type>string</Type>
                   <IsIndex>1</IsIndex>
@@ -64,6 +68,7 @@
                 </Field>
                 <Field>
                   <Name>ПеріодЗначення</Name>
+                  <FullName>Період значення</FullName>
                   <NameInTable>col_a3</NameInTable>
                   <Type>string</Type>
                   <IsIndex>0</IsIndex>
@@ -74,6 +79,7 @@
                 </Field>
                 <Field>
                   <Name>ДатаСтарт</Name>
+                  <FullName>Дата старт</FullName>
                   <NameInTable>col_a4</NameInTable>
                   <Type>date</Type>
                   <IsIndex>0</IsIndex>
@@ -83,6 +89,7 @@
                 </Field>
                 <Field>
                   <Name>ДатаСтоп</Name>
+                  <FullName>Дата стоп</FullName>
                   <NameInTable>col_a5</NameInTable>
                   <Type>date</Type>
                   <IsIndex>0</IsIndex>
@@ -134,6 +141,7 @@
       <Table>tab_a14</Table>
       <Desc>Користувачі</Desc>
       <AutoNum>1</AutoNum>
+      <VersionsHistory>0</VersionsHistory>
       <Type>Normal</Type>
       <PredefinedFields>
         <PredefinedField>
@@ -156,6 +164,7 @@
       <Fields>
         <Field>
           <Name>Назва</Name>
+          <FullName>Назва</FullName>
           <NameInTable>col_f6</NameInTable>
           <Type>string</Type>
           <Desc>Назва</Desc>
@@ -168,6 +177,7 @@
         </Field>
         <Field>
           <Name>Код</Name>
+          <FullName>Код</FullName>
           <NameInTable>col_f7</NameInTable>
           <Type>string</Type>
           <Desc>Код</Desc>
@@ -180,6 +190,7 @@
         </Field>
         <Field>
           <Name>Коментар</Name>
+          <FullName>Коментар</FullName>
           <NameInTable>col_g6</NameInTable>
           <Type>string</Type>
           <IsPresentation>0</IsPresentation>
@@ -191,6 +202,7 @@
         </Field>
         <Field>
           <Name>КодВСпеціальнійТаблиці</Name>
+          <FullName>Код в спеціальній таблиці</FullName>
           <NameInTable>col_a2</NameInTable>
           <Type>any_pointer</Type>
           <Desc>Код користувача який авторизувався із спеціальної таблиці Users</Desc>
@@ -204,7 +216,9 @@
       <TabularParts>
         <TablePart>
           <Name>Контакти</Name>
+          <FullName>Контакти</FullName>
           <Table>tab_a15</Table>
+          <VersionsHistory>0</VersionsHistory>
           <PredefinedFields>
             <PredefinedField>
               <Name>uid</Name>
@@ -226,6 +240,7 @@
           <Fields>
             <Field>
               <Name>Тип</Name>
+              <FullName>Тип</FullName>
               <NameInTable>col_f8</NameInTable>
               <Type>enum</Type>
               <Pointer>Перелічення.ТипиКонтактноїІнформації</Pointer>
@@ -236,6 +251,7 @@
             </Field>
             <Field>
               <Name>Телефон</Name>
+              <FullName>Телефон</FullName>
               <NameInTable>col_g5</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -246,6 +262,7 @@
             </Field>
             <Field>
               <Name>ЕлектроннаПошта</Name>
+              <FullName>Електронна пошта</FullName>
               <NameInTable>col_g4</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -256,6 +273,7 @@
             </Field>
             <Field>
               <Name>Країна</Name>
+              <FullName>Країна</FullName>
               <NameInTable>col_f9</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -266,6 +284,7 @@
             </Field>
             <Field>
               <Name>Область</Name>
+              <FullName>Область</FullName>
               <NameInTable>col_g1</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -276,6 +295,7 @@
             </Field>
             <Field>
               <Name>Район</Name>
+              <FullName>Район</FullName>
               <NameInTable>col_g2</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -286,6 +306,7 @@
             </Field>
             <Field>
               <Name>Місто</Name>
+              <FullName>Місто</FullName>
               <NameInTable>col_g3</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -296,6 +317,7 @@
             </Field>
             <Field>
               <Name>Значення</Name>
+              <FullName>Значення</FullName>
               <NameInTable>col_a1</NameInTable>
               <Type>string</Type>
               <IsIndex>0</IsIndex>
@@ -512,7 +534,6 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
-          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Список</Name>
@@ -598,7 +619,6 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
-          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
@@ -997,6 +1017,7 @@ namespace NewProject
       <FullName>НовийДок</FullName>
       <Table>tab_a01</Table>
       <AutoNum>1</AutoNum>
+      <VersionsHistory>0</VersionsHistory>
       <ExportXml>1</ExportXml>
       <PredefinedFields>
         <PredefinedField>
@@ -1035,6 +1056,7 @@ namespace NewProject
       <Fields>
         <Field>
           <Name>Назва</Name>
+          <FullName>Назва</FullName>
           <NameInTable>docname</NameInTable>
           <Type>string</Type>
           <Desc>Назва</Desc>
@@ -1047,6 +1069,7 @@ namespace NewProject
         </Field>
         <Field>
           <Name>НомерДок</Name>
+          <FullName>Номер док</FullName>
           <NameInTable>docnomer</NameInTable>
           <Type>string</Type>
           <Desc>НомерДок</Desc>
@@ -1059,6 +1082,7 @@ namespace NewProject
         </Field>
         <Field>
           <Name>ДатаДок</Name>
+          <FullName>Дата док</FullName>
           <NameInTable>docdate</NameInTable>
           <Type>datetime</Type>
           <Desc>ДатаДок</Desc>
@@ -1070,6 +1094,7 @@ namespace NewProject
         </Field>
         <Field>
           <Name>Коментар</Name>
+          <FullName>Коментар</FullName>
           <NameInTable>col_a1</NameInTable>
           <Type>string</Type>
           <Desc>Коментар</Desc>
@@ -1084,7 +1109,9 @@ namespace NewProject
       <TabularParts>
         <TablePart>
           <Name>Накопичення</Name>
+          <FullName>Накопичення</FullName>
           <Table>tab_a03</Table>
+          <VersionsHistory>0</VersionsHistory>
           <PredefinedFields>
             <PredefinedField>
               <Name>uid</Name>
@@ -1106,6 +1133,7 @@ namespace NewProject
           <Fields>
             <Field>
               <Name>Користувач</Name>
+              <FullName>Користувач</FullName>
               <NameInTable>col_a3</NameInTable>
               <Type>pointer</Type>
               <Pointer>Довідники.Користувачі</Pointer>
@@ -1116,6 +1144,7 @@ namespace NewProject
             </Field>
             <Field>
               <Name>Сума</Name>
+              <FullName>Сума</FullName>
               <NameInTable>col_a4</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -1430,7 +1459,6 @@ namespace NewProject
     ]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
-          <UsePages>0</UsePages>
         </Form>
         <Form Modified="0">
           <Name>Елемент</Name>
@@ -1983,11 +2011,20 @@ namespace GeneratedCode.Документи
           <IsIndex>1</IsIndex>
           <IsNotNull>1</IsNotNull>
         </PredefinedField>
+        <PredefinedField>
+          <Name>ownertype</Name>
+          <NameInTable>ownertype</NameInTable>
+          <Type>composite_text</Type>
+          <IsPrimaryKey>0</IsPrimaryKey>
+          <IsIndex>1</IsIndex>
+          <IsNotNull>0</IsNotNull>
+        </PredefinedField>
       </PredefinedFields>
       <DimensionFields>
         <Fields>
           <Field>
             <Name>Користувач</Name>
+            <FullName>Користувач</FullName>
             <NameInTable>col_a1</NameInTable>
             <Type>pointer</Type>
             <Pointer>Довідники.Користувачі</Pointer>
@@ -2002,6 +2039,7 @@ namespace GeneratedCode.Документи
         <Fields>
           <Field>
             <Name>Сума</Name>
+            <FullName>Сума</FullName>
             <NameInTable>col_a2</NameInTable>
             <Type>numeric</Type>
             <IsIndex>0</IsIndex>
@@ -2020,8 +2058,10 @@ namespace GeneratedCode.Документи
       <TabularParts>
         <TablePart>
           <Name>Залишки</Name>
+          <FullName>Залишки</FullName>
           <Table>tab_a04</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <VersionsHistory>0</VersionsHistory>
           <PredefinedFields>
             <PredefinedField>
               <Name>uid</Name>
@@ -2043,6 +2083,7 @@ namespace GeneratedCode.Документи
           <Fields>
             <Field>
               <Name>Період</Name>
+              <FullName>Період</FullName>
               <NameInTable>col_a1</NameInTable>
               <Type>date</Type>
               <IsIndex>1</IsIndex>
@@ -2052,6 +2093,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>Користувач</Name>
+              <FullName>Користувач</FullName>
               <NameInTable>col_a2</NameInTable>
               <Type>pointer</Type>
               <Pointer>Довідники.Користувачі</Pointer>
@@ -2062,6 +2104,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>Сума</Name>
+              <FullName>Сума</FullName>
               <NameInTable>col_a3</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -2079,8 +2122,10 @@ namespace GeneratedCode.Документи
         </TablePart>
         <TablePart>
           <Name>ЗалишкиТаОбороти</Name>
+          <FullName>Залишки та обороти</FullName>
           <Table>tab_a05</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <VersionsHistory>0</VersionsHistory>
           <PredefinedFields>
             <PredefinedField>
               <Name>uid</Name>
@@ -2102,6 +2147,7 @@ namespace GeneratedCode.Документи
           <Fields>
             <Field>
               <Name>Період</Name>
+              <FullName>Період</FullName>
               <NameInTable>col_a1</NameInTable>
               <Type>date</Type>
               <IsIndex>1</IsIndex>
@@ -2111,6 +2157,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>Користувач</Name>
+              <FullName>Користувач</FullName>
               <NameInTable>col_a2</NameInTable>
               <Type>pointer</Type>
               <Pointer>Довідники.Користувачі</Pointer>
@@ -2121,6 +2168,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>СумаПрихід</Name>
+              <FullName>Сума прихід</FullName>
               <NameInTable>col_a3</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -2130,6 +2178,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>СумаРозхід</Name>
+              <FullName>Сума розхід</FullName>
               <NameInTable>col_a4</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -2139,6 +2188,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>СумаЗалишок</Name>
+              <FullName>Сума залишок</FullName>
               <NameInTable>col_a5</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -2156,8 +2206,10 @@ namespace GeneratedCode.Документи
         </TablePart>
         <TablePart>
           <Name>Підсумки</Name>
+          <FullName>Підсумки</FullName>
           <Table>tab_a06</Table>
           <Desc>Віртуальна таблиця</Desc>
+          <VersionsHistory>0</VersionsHistory>
           <PredefinedFields>
             <PredefinedField>
               <Name>uid</Name>
@@ -2179,6 +2231,7 @@ namespace GeneratedCode.Документи
           <Fields>
             <Field>
               <Name>Користувач</Name>
+              <FullName>Користувач</FullName>
               <NameInTable>col_a1</NameInTable>
               <Type>pointer</Type>
               <Pointer>Довідники.Користувачі</Pointer>
@@ -2189,6 +2242,7 @@ namespace GeneratedCode.Документи
             </Field>
             <Field>
               <Name>Сума</Name>
+              <FullName>Сума</FullName>
               <NameInTable>col_a2</NameInTable>
               <Type>numeric</Type>
               <IsIndex>0</IsIndex>
@@ -2385,7 +2439,6 @@ HAVING
           <GeneratedCode><![CDATA[]]></GeneratedCode>
           <NotSaveToFile>0</NotSaveToFile>
           <TabularList>Записи</TabularList>
-          <UsePages>0</UsePages>
         </Form>
       </Forms>
     </RegisterAccumulation>

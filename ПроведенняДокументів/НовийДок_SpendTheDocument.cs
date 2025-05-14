@@ -30,7 +30,7 @@ namespace GeneratedCode.Документи
                     });
                 }
 
-                await регНакопичення.Save(ДокументОбєкт.ДатаДок, ДокументОбєкт.UnigueID.UGuid);
+                await регНакопичення.Save(ДокументОбєкт.ДатаДок, ДокументОбєкт.GetBasis());
 
                 return true;
             }

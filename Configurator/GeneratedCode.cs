@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 25.04.2025 17:36:48
+ * Дата конфігурації: 14.05.2025 20:19:06
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -299,7 +299,7 @@ namespace GeneratedCode.Довідники
         public event EventHandler<string>? CaptionChanged;
 
         public Користувачі_Objest() : base(Config.Kernel, "tab_a14", Користувачі_Const.TYPE,
-             ["col_f6", "col_f7", "col_g6", "col_a2", ]) 
+             ["col_f6", "col_f7", "col_g6", "col_a2", ])
         {
             
                 //Табличні частини
@@ -574,14 +574,12 @@ namespace GeneratedCode.Довідники
         {
             if (!await base.IsExistOwner(Owner.UnigueID, "tab_a14"))
                 throw new Exception("Owner not exist");
-
             
                 
             await base.BaseBeginTransaction();
-                
+            
             if (clear_all_before_save)
                 await base.BaseDelete(Owner.UnigueID);
-
             
             
             foreach (Record record in Records)
@@ -607,33 +605,7 @@ namespace GeneratedCode.Довідники
             
             Saved?.Invoke(this, new EventArgs());
         }
-
-        public async ValueTask Remove(Record record)
-        {
-            await base.BaseRemove(record.UID, Owner.UnigueID);
-            Records.RemoveAll(item => record.UID == item.UID);
-        }
-
-        public async ValueTask RemoveAll(List<Record> records)
-        {
-            List<Guid> removeList = [];
-
-            await base.BaseBeginTransaction();
-            foreach (Record record in records)
-            {
-                removeList.Add(record.UID);
-                await base.BaseRemove(record.UID, Owner.UnigueID);
-            }
-            await base.BaseCommitTransaction();
-
-            Records.RemoveAll(item => removeList.Exists(uid => uid == item.UID));
-        }
         
-        public async ValueTask Delete()
-        {
-            await base.BaseDelete(Owner.UnigueID);
-        }
-
         public List<Record> Copy()
         {
             List<Record> copyRecords = new(Records);
@@ -1103,14 +1075,12 @@ namespace GeneratedCode.Документи
         {
             if (!await base.IsExistOwner(Owner.UnigueID, "tab_a01"))
                 throw new Exception("Owner not exist");
-
             
 
             await base.BaseBeginTransaction();
-                
+            
             if (clear_all_before_save)
                 await base.BaseDelete(Owner.UnigueID);
-
             
 
             foreach (Record record in Records)
@@ -1130,33 +1100,7 @@ namespace GeneratedCode.Документи
             
             Saved?.Invoke(this, new EventArgs());
         }
-
-        public async ValueTask Remove(Record record)
-        {
-            await base.BaseRemove(record.UID, Owner.UnigueID);
-            Records.RemoveAll(item => record.UID == item.UID);
-        }
-
-        public async ValueTask RemoveAll(List<Record> records)
-        {
-            List<Guid> removeList = [];
-
-            await base.BaseBeginTransaction();
-            foreach (Record record in records)
-            {
-                removeList.Add(record.UID);
-                await base.BaseRemove(record.UID, Owner.UnigueID);
-            }
-            await base.BaseCommitTransaction();
-
-            Records.RemoveAll(item => removeList.Exists(uid => uid == item.UID));
-        }
-
-        public async ValueTask Delete()
-        {
-            await base.BaseDelete(Owner.UnigueID);
-        }
-
+        
         public List<Record> Copy()
         {
             List<Record> copyRecords = new(Records);
@@ -1412,6 +1356,7 @@ namespace GeneratedCode.РегістриНакопичення
                     Period = DateTime.Parse(fieldValue["period"]?.ToString() ?? DateTime.MinValue.ToString()),
                     Income = (bool)fieldValue["income"],
                     Owner = (Guid)fieldValue["owner"],
+                    OwnerType = fieldValue["ownertype"] != DBNull.Value ? (NameAndText)fieldValue["ownertype"] : new NameAndText(),
                     Користувач = new Довідники.Користувачі_Pointer(fieldValue["col_a1"]),
                     Сума = (fieldValue["col_a2"] != DBNull.Value) ? (decimal)fieldValue["col_a2"] : 0,
                     
@@ -1430,24 +1375,25 @@ namespace GeneratedCode.РегістриНакопичення
             base.BaseClear();
         }
         
-        public async ValueTask Save(DateTime period, Guid owner) 
+        public async ValueTask Save(DateTime period, UuidAndText owner) 
         {
             await base.BaseBeginTransaction();
-            await base.BaseSelectPeriodForOwner(owner, period);
-            await base.BaseDelete(owner);
+            await base.BaseSelectPeriodForOwner(owner.Uuid, period);
+            await base.BaseDelete(owner.Uuid);
             foreach (Record record in Records)
             {
                 record.Period = period;
-                record.Owner = owner;
-                Dictionary<string, object> fieldValue = new Dictionary<string, object>()
+                record.Owner = owner.Uuid;
+                record.OwnerType = owner.GetNameAndText();
+                Dictionary<string, object> fieldValue = new()
                 {
                     {"col_a1", record.Користувач.UnigueID.UGuid},
                     {"col_a2", record.Сума},
                     
                 };
-                record.UID = await base.BaseSave(record.UID, period, record.Income, owner, fieldValue);
+                record.UID = await base.BaseSave(record.UID, record.Period, record.Income, record.Owner, record.OwnerType, fieldValue);
             }
-            await base.BaseTrigerAdd(period, owner);
+            await base.BaseTrigerAdd(period, owner.Uuid);
             await base.BaseCommitTransaction();
         }
 
@@ -1515,7 +1461,7 @@ namespace GeneratedCode.РегістриНакопичення
             }
             await base.BaseCommitTransaction();
         }
-
+        
         public async ValueTask Remove(Record record)
         {
             await base.BaseRemove(record.UID);
@@ -1606,7 +1552,7 @@ namespace GeneratedCode.РегістриНакопичення
             }
             await base.BaseCommitTransaction();
         }
-
+        
         public async ValueTask Remove(Record record)
         {
             await base.BaseRemove(record.UID);
@@ -1690,7 +1636,7 @@ namespace GeneratedCode.РегістриНакопичення
             }
             await base.BaseCommitTransaction();
         }
-
+        
         public async ValueTask Remove(Record record)
         {
             await base.BaseRemove(record.UID);
