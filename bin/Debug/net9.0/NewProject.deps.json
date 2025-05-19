@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "NewProject/3.1.0.6": {
+      "NewProject/3.1.0.7": {
         "dependencies": {
           "AccountingSoftware": "3.1.0.7",
           "Configurator3": "3.1.0.7",
@@ -474,7 +474,7 @@
     }
   },
   "libraries": {
-    "NewProject/3.1.0.6": {
+    "NewProject/3.1.0.7": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
