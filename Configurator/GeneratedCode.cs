@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 19.05.2025 22:21:39
+ * Дата конфігурації: 30.06.2025 11:33:29
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -487,9 +487,9 @@ namespace GeneratedCode.Довідники
         public bool MoveNext() { if (base.MoveToPosition() && base.CurrentPointerPosition.HasValue) { Current = new Користувачі_Pointer(base.CurrentPointerPosition.Value.UnigueID, base.CurrentPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
         public Користувачі_Pointer? Current { get; private set; }
         
-        public async ValueTask<Користувачі_Pointer> FindByField(string name, object value)
+        public async ValueTask<Користувачі_Pointer> FindByField(string name, object value, string funcToField = "", string funcToField_Param1 = "")
         {
-            UnigueID? pointer = await base.BaseFindByField(name, value);
+            UnigueID? pointer = await base.BaseFindByField(name, value, funcToField, funcToField_Param1);
             return pointer != null ? new Користувачі_Pointer(pointer) : new Користувачі_Pointer();
         }
         
@@ -598,14 +598,14 @@ namespace GeneratedCode.Довідники
                     
                 };
                 record.UID = await base.BaseSave(record.UID, Owner.UnigueID, fieldValue);
+                
             }
                 
             await base.BaseCommitTransaction();
-
             
             Saved?.Invoke(this, new EventArgs());
         }
-        
+
         public List<Record> Copy()
         {
             List<Record> copyRecords = new(Records);
@@ -992,9 +992,9 @@ namespace GeneratedCode.Документи
         public bool MoveNext() { if (base.MoveToPosition() && base.CurrentPointerPosition.HasValue) { Current = new НовийДок_Pointer(base.CurrentPointerPosition.Value.UnigueID, base.CurrentPointerPosition.Value.Fields); return true; } else { Current = null; return false; } }
         public НовийДок_Pointer? Current { get; private set; }
 
-        public async ValueTask<НовийДок_Pointer> FindByField(string name, object value)
+        public async ValueTask<НовийДок_Pointer> FindByField(string name, object value, string funcToField = "", string funcToField_Param1 = "")
         {
-            UnigueID? pointer = await base.BaseFindByField(name, value);
+            UnigueID? pointer = await base.BaseFindByField(name, value, funcToField, funcToField_Param1);
             return pointer != null ? new НовийДок_Pointer(pointer) : new НовийДок_Pointer();
         }
         
@@ -1081,26 +1081,26 @@ namespace GeneratedCode.Документи
             
             if (clear_all_before_save)
                 await base.BaseDelete(Owner.UnigueID);
-            
 
+            
             foreach (Record record in Records)
             {
                 
-                Dictionary<string, object> fieldValue = new Dictionary<string, object>()
+                Dictionary<string, object> fieldValue = new()
                 {
                     {"col_a3", record.Користувач.UnigueID.UGuid},
                     {"col_a4", record.Сума},
                     
                 };
                 record.UID = await base.BaseSave(record.UID, Owner.UnigueID, fieldValue);
+                
             }
             
             await base.BaseCommitTransaction();
-
             
             Saved?.Invoke(this, new EventArgs());
         }
-        
+
         public List<Record> Copy()
         {
             List<Record> copyRecords = new(Records);
