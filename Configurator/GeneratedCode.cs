@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 30.06.2025 11:33:29
+ * Дата конфігурації: 30.06.2025 12:02:01
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон GeneratedCode.xslt
@@ -577,7 +577,7 @@ namespace GeneratedCode.Довідники
             
                 
             await base.BaseBeginTransaction();
-            
+
             if (clear_all_before_save)
                 await base.BaseDelete(Owner.UnigueID);
             
