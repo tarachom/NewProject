@@ -4,13 +4,13 @@
 
 */
 
-using InterfaceGtk;
+using InterfaceGtk3;
 using GeneratedCode;
 using AccountingSoftware;
 
 namespace NewProject
 {
-    class ЗвітСторінка : InterfaceGtk.ЗвітСторінка
+    class ЗвітСторінка : InterfaceGtk3.ЗвітСторінка
     {
         public ЗвітСторінка() : base(Config.Kernel) { }
 

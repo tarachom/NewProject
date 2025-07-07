@@ -1,4 +1,4 @@
-using InterfaceGtk;
+using InterfaceGtk3;
 using AccountingSoftware;
 
 using GeneratedCode;
@@ -8,7 +8,7 @@ namespace NewProject
     /// <summary>
     /// Переоприділення форми вибору бази
     /// </summary>
-    class FormConfigurationSelection : InterfaceGtk.FormConfigurationSelection
+    class FormConfigurationSelection : InterfaceGtk3.FormConfigurationSelection
     {
         public FormConfigurationSelection() : base(Config.Kernel, Configurator.Program.Kernel, TypeForm.WorkingProgram) { }
 

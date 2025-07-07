@@ -9,7 +9,7 @@ using GeneratedCode;
 
 namespace NewProject
 {
-    class PageFullTextSearch : InterfaceGtk.PageFullTextSearch
+    class PageFullTextSearch : InterfaceGtk3.PageFullTextSearch
     {
         public PageFullTextSearch() : base(Config.Kernel) { }
 
