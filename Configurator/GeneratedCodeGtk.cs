@@ -4,7 +4,7 @@
  * Конфігурації "Новий проєкт"
  * Автор 
   
- * Дата конфігурації: 06.07.2025 19:24:01
+ * Дата конфігурації: 14.07.2025 14:05:51
  *
  *
  * Цей код згенерований в Конфігураторі 3. Шаблон Gtk.xslt
@@ -136,7 +136,7 @@ namespace GeneratedCode.Довідники.ТабличніСписки
         public static async ValueTask LoadRecords(TreeView treeView, UnigueID? openFolder = null, 
           UnigueID? selectPointerItem = null, UnigueID? directoryPointerItem = null)
         {
-            TreePath? FirstPath = null, SelectPath = null, CurrentPath = null;
+            TreePath? /*FirstPath = null,*/ SelectPath = null, CurrentPath = null;
             UnigueID? unigueIDSelect = selectPointerItem ?? directoryPointerItem;
             ListStore Store = (ListStore)treeView.Model;
             
@@ -192,7 +192,7 @@ namespace GeneratedCode.Довідники.ТабличніСписки
                       
 
                     CurrentPath = Store.GetPath(CurrentIter);
-                    FirstPath ??= CurrentPath;
+                    /*FirstPath ??= CurrentPath;*/
                     if (uidSelect != null && Record.ID == uidSelect) SelectPath = CurrentPath;
                 }
             }
@@ -339,7 +339,7 @@ namespace GeneratedCode.Документи.ТабличніСписки
 
         public static async ValueTask LoadRecords(TreeView treeView, UnigueID? selectPointerItem = null, UnigueID? directoryPointerItem = null)
         {
-            TreePath? FirstPath = null, SelectPath = null, CurrentPath = null;
+            TreePath? /*FirstPath = null,*/ SelectPath = null, CurrentPath = null;
             UnigueID? unigueIDSelect = selectPointerItem ?? directoryPointerItem;
             ListStore Store = (ListStore)treeView.Model;
 
@@ -397,7 +397,7 @@ namespace GeneratedCode.Документи.ТабличніСписки
 
                     TreeIter CurrentIter = Store.AppendValues(Record.ToArray());
                     CurrentPath = Store.GetPath(CurrentIter);
-                    FirstPath ??= CurrentPath;
+                    /*FirstPath ??= CurrentPath;*/
                     if (uidSelect != null && Record.ID == uidSelect) SelectPath = CurrentPath;
                 }
             }
